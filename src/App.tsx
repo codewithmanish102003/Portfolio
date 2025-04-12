@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Code2, Server, Database, Layout, Menu, X, Sun, Moon } from 'lucide-react';
-import ChatBot from './components/ChatBot';
+// import ChatBot from './components/ChatBot';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -219,7 +219,7 @@ function App() {
           </div>
         </div>
       </section>
-      <ChatBot/>
+      {/* <ChatBot/> */}
       {/* Footer */}
       <footer className={isDarkMode ? "bg-gray-900 text-white py-8" : "bg-gray-900 text-white py-8"}>
         <div className="container mx-auto px-6 text-center">
