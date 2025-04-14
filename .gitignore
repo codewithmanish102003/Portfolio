@@ -10,24 +10,6 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-.env
-.local.env
-.env.*
-*.local
-*.local.*
-*.tgz
-*.zip
-*.tar.gz
-*.tar
-*.tar.bz2
-*.tar.xz
-*.tar.lz
-*.tar.lzma
-*.tar.zst
-*.tar.lzo
-*.tar.lz4
-*.tar.lzop
-*.tar.lzip 
 
 
 # Editor directories and files
@@ -40,3 +22,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
