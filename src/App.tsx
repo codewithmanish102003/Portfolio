@@ -123,7 +123,7 @@ function App() {
                 image: "Screenshot 2025-02-22 214223.png",
                 tech: ["HTML", "CSS", "JavaScript", ],
                 github: "https://github.com/codewithmanish102003/Work/tree/main/Calculator",
-                live: "https://ecommerce-demo.johndoe.dev"
+                live: "https://basefuncalc.netlify.app/"
               },
               {
                 title: "Employee Task Management System",
