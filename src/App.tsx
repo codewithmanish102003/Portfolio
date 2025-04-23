@@ -131,7 +131,7 @@ function App() {
                 image: "Screenshot 2024-12-22 144610.png",
                 tech: ["React","ExpressJS", "MongoDB", "Tailwind"],
                 github: "https://github.com/codewithmanish102003/Work/tree/main/Employee_Management_System",
-                live: "https://tasks.johndoe.dev"
+                live: "https://emts.netlify.app/"
               },
               {
                 title: "Spotify Clone",
