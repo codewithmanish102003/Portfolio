@@ -1,5 +1,5 @@
+import { Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, Moon, Server, Sun, X } from 'lucide-react';
 import { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Server, Database, Layout, Menu, X, Sun, Moon } from 'lucide-react';
 // import ChatBot from './components/ChatBot';
 
 function App() {
@@ -55,30 +55,30 @@ function App() {
 
       {/* Hero Section */}
       <header className={isDarkMode ? "bg-gradient-to-r from-gray-700 to-gray-900 text-white pt-16" : "bg-gradient-to-r from-blue-600 to-indigo-700 text-white pt-16"}>
-        <div className="container mx-auto px-6 py-24 flex flex-row md:flex-row items-center justify-between gap-10">
-          <div className="max-w-4xl flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
-              <h1 className="text-5xl font-bold mb-4">Manish Prajapati</h1>
-              <h2 className="text-3xl font-semibold mb-6">MERN Stack Developer</h2>
-              <p className="text-xl mb-8 text-blue-100">Crafting robust and scalable web applications with modern technologies. Passionate about creating exceptional user experiences.</p>
-              <div className="flex space-x-4">
-                <a href="#contact" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                  Get in touch
-                </a>
-                <a href="#projects" className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-                  View my work
-                </a>
-              </div>
-            </div>
-            
+        <div className="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center justify-between gap-10">
+          {/* Profile Image: On mobile, appears above text; on md+, appears right */}
+          <div className="w-full md:w-1/2 mb-8 md:mb-0 md:order-2 flex justify-center">
+            <img 
+              src="\1707530238951.jpg"
+              alt="profile"
+              className="rounded-full w-64 h-64 object-cover border-4 border-white shadow-xl mx-auto autofill:object-fill"
+            />
           </div>
-          <div className="md:w-1/2">
-              <img 
-                src="\1707530238951.jpg"
-                alt="profile"
-                className="rounded-full w-64 h-64 object-cover border-4 border-white shadow-xl mx-auto autofill:object-fill"
-              />
+          <div className="w-full md:w-1/2 md:order-1 flex flex-col items-center md:items-start">
+            <h1 className="text-5xl font-bold mb-4">Manish Prajapati</h1>
+            <h2 className="text-3xl font-semibold mb-6">MERN Stack Developer</h2>
+            <p className="text-xl mb-8 text-blue-100 text-center md:text-left">
+              Crafting robust and scalable web applications with modern technologies. Passionate about creating exceptional user experiences.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#contact" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                Get in touch
+              </a>
+              <a href="#projects" className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+                View my work
+              </a>
             </div>
+          </div>
         </div>
       </header>
 
