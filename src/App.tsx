@@ -120,7 +120,7 @@ function App() {
               {
                 title: "Calculator",
                 description: "Functional Calculator Using HTML , CSS and JavaScript",
-                image: "Screenshot 2025-02-22 214223.png",
+                image: "Screenshot 2025-05-26 214958.png",
                 tech: ["HTML", "CSS", "JavaScript", ],
                 github: "https://github.com/codewithmanish102003/Work/tree/main/Calculator",
                 live: "https://basefuncalc.netlify.app/"
