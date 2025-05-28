@@ -118,11 +118,19 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
+                title: "Netflix UI Clone",
+                description: "Netflix UI Clone using HTML and CSS",
+                image: "Screenshot 2025-05-28 235010.png",
+                tech: ["HTML", "CSS", "JavaScript", ],
+                github: "https://github.com/codewithmanish102003/Work/tree/main/Netflix",
+                // live: "https://basefuncalc.netlify.app/"
+              },
+              {
                 title: "Calculator",
                 description: "Functional Calculator Using HTML , CSS and JavaScript",
                 image: "Screenshot 2025-05-26 214958.png",
                 tech: ["HTML", "CSS", "JavaScript", ],
-                github: "https://github.com/codewithmanish102003/Work/tree/main/Calculator",
+                github: "https://github.com/codewithmanish102003/Calculator",
                 live: "https://basefuncalc.netlify.app/"
               },
               {
@@ -139,7 +147,7 @@ function App() {
                 image: "Screenshot 2025-02-22 214713.png",
                 tech: ["HTML", "CSS", "JavaScript","ExpressJS" ],
                 github: "https://github.com/codewithmanish102003/Work/tree/main/Spotify",
-                live: "https://social-dashboard.johndoe.dev"
+                // live: "https://social-dashboard.johndoe.dev"
               }
             ].map((project, index) => (
               <div key={index} className={isDarkMode ? "bg-gray-800 rounded-xl overflow-hidden shadow-lg" : "bg-white rounded-xl overflow-hidden shadow-lg"}>
