@@ -148,6 +148,14 @@ function App() {
                 tech: ["HTML", "CSS", "JavaScript","ExpressJS" ],
                 github: "https://github.com/codewithmanish102003/Spotify",
                 live: "https://spotifii.netlify.app/"
+              },
+              {
+                title: "E-commerce Website",
+                description: "E-commerce Website with few features of Add to Cart , Remove from Cart and Checkout",
+                image: "Screenshot 2025-06-04 225118.png",
+                tech: ["React", "NodeJS","ExpressJS","MongoDB", "Tailwind","Redux"],
+                github: "https://github.com/codewithmanish102003/New-folder",
+                live: "https://starwaycollections.netlify.app/"
               }
             ].map((project, index) => (
               <div key={index} className={isDarkMode ? "bg-gray-800 rounded-xl overflow-hidden shadow-lg" : "bg-white rounded-xl overflow-hidden shadow-lg"}>
