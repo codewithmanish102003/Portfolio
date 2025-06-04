@@ -146,8 +146,8 @@ function App() {
                 description: "Functional Web App with few features of Play , Pause and Stop",
                 image: "Screenshot 2025-02-22 214713.png",
                 tech: ["HTML", "CSS", "JavaScript","ExpressJS" ],
-                github: "https://github.com/codewithmanish102003/Work/tree/main/Spotify",
-                // live: "https://social-dashboard.johndoe.dev"
+                github: "https://github.com/codewithmanish102003/Spotify",
+                live: "https://spotifii.netlify.app/"
               }
             ].map((project, index) => (
               <div key={index} className={isDarkMode ? "bg-gray-800 rounded-xl overflow-hidden shadow-lg" : "bg-white rounded-xl overflow-hidden shadow-lg"}>
