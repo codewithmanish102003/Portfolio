@@ -136,7 +136,7 @@ function App() {
               {
                 title: "Employee Task Management System",
                 description: "Real-time task management application with React.js and MongoDB",
-                image: "Screenshot 2024-12-22 144610.png",
+                image: "Screenshot 2025-06-04 235648.png",
                 tech: ["React","ExpressJS", "MongoDB", "Tailwind"],
                 github: "https://github.com/codewithmanish102003/Work/tree/main/Employee_Management_System",
                 live: "https://emts.netlify.app/"
