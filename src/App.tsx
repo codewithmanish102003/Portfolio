@@ -65,8 +65,8 @@ function App() {
             />
           </div>
           <div className="w-full md:w-1/2 md:order-1 flex flex-col items-center md:items-start">
-            <h1 className="text-5xl font-bold mb-4">Manish Prajapati</h1>
-            <h2 className="text-3xl font-semibold mb-6">MERN Stack Developer</h2>
+            <h1 className="text-5xl font-bold mb-4 text-center">Manish Prajapati</h1>
+            <h2 className="text-3xl font-semibold mb-6 text-center">MERN Stack Developer</h2>
             <p className="text-xl mb-8 text-blue-100 text-center md:text-left">
               Crafting robust and scalable web applications with modern technologies. Passionate about creating exceptional user experiences.
             </p>
