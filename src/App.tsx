@@ -65,8 +65,8 @@ function App() {
             />
           </div>
           <div className="w-full md:w-1/2 md:order-1 flex flex-col items-center md:items-start">
-            <h1 className="text-5xl font-bold mb-4 text-center md:text-left">Manish Prajapati</h1>
-            <h2 className="text-3xl font-semibold mb-6 text-center md:text-left">MERN Stack Developer</h2>
+            <h1 className="text-5xl font-bold mb-4">Manish Prajapati</h1>
+            <h2 className="text-3xl font-semibold mb-6">MERN Stack Developer</h2>
             <p className="text-xl mb-8 text-blue-100 text-center md:text-left">
               Crafting robust and scalable web applications with modern technologies. Passionate about creating exceptional user experiences.
             </p>
@@ -87,23 +87,51 @@ function App() {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-16">Technical Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className={isDarkMode ? "p-6 bg-gray-700 rounded-xl" : "p-6 bg-gray-50 rounded-xl"}>
-              <Code2 className="w-12 h-12 text-blue-600 mb-4" />
+            <div
+              className={
+                (isDarkMode
+                  ? "p-6 bg-gray-700 rounded-xl"
+                  : "p-6 bg-gray-50 rounded-xl") +
+                " transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              }
+            >
+              <Code2 className="w-12 h-12 text-blue-600 mb-4 transition-transform duration-300 group-hover:rotate-12" />
               <h3 className="text-xl font-semibold mb-2">Frontend</h3>
               <p className="text-gray-600">React, Next.js, TypeScript, Tailwind CSS</p>
             </div>
-            <div className={isDarkMode ? "p-6 bg-gray-700 rounded-xl" : "p-6 bg-gray-50 rounded-xl"}>
-              <Server className="w-12 h-12 text-blue-600 mb-4" />
+            <div
+              className={
+                (isDarkMode
+                  ? "p-6 bg-gray-700 rounded-xl"
+                  : "p-6 bg-gray-50 rounded-xl") +
+                " transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              }
+            >
+              <Server className="w-12 h-12 text-blue-600 mb-4 transition-transform duration-300 group-hover:rotate-12" />
               <h3 className="text-xl font-semibold mb-2">Backend</h3>
               <p className="text-gray-600">Node.js, Express, REST APIs</p>
             </div>
-            <div className={isDarkMode ? "p-6 bg-gray-700 rounded-xl" : "p-6 bg-gray-50 rounded-xl"}>
-              <Database className="w-12 h-12 text-blue-600 mb-4" />
+            <div
+              className={
+                (isDarkMode
+                  ? "p-6 bg-gray-700 rounded-xl"
+                  : "p-6 bg-gray-50 rounded-xl") +
+                " transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              }
+            >
+              <Database className="w-12 h-12 text-blue-600 mb-4 transition-transform duration-300 group-hover:rotate-12" />
               <h3 className="text-xl font-semibold mb-2">Database</h3>
               <p className="text-gray-600">MongoDB, MySQL</p>
             </div>
-            <div className={isDarkMode ? "p-6 bg-gray-700 rounded-xl" : "p-6 bg-gray-50 rounded-xl"}>
-              <Layout className="w-12 h-12 text-blue-600 mb-4" />
+            <div
+              className={
+                (isDarkMode
+                  ? "p-6 bg-gray-700 rounded-xl"
+                  : "p-6 bg-gray-50 rounded-xl") +
+                " transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              }
+            >
+              <Layout className="w-12 h-12 text-blue-600 mb-4 transition-transform duration-300 group-hover:rotate-12" />
               <h3 className="text-xl font-semibold mb-2">Design</h3>
               <p className="text-gray-600">Responsive Design, UI/UX</p>
             </div>
@@ -202,8 +230,60 @@ function App() {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-16">Get in Touch</h2>
           <div className="max-w-2xl mx-auto">
-            <div></div>
-            <div className="flex flex-col items-center space-y-6">
+            {/* Resume Download Button */}
+            <div className="flex justify-center mb-8">
+              <a
+                href="Manish Prajapati - CV.pdf"
+                download
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Download Resume
+              </a>
+            </div>
+            {/* Contact Form */}
+            {/* <form
+              action="https://formspree.io/f/xwkgyyqk"
+              method="POST"
+              className={isDarkMode ? "bg-gray-900 p-8 rounded-xl shadow-md" : "bg-gray-100 p-8 rounded-xl shadow-md"}
+            >
+              <div className="mb-4">
+                <label className="block mb-2 font-semibold" htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block mb-2 font-semibold" htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="mb-6">
+                <label className="block mb-2 font-semibold" htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Send Message
+              </button>
+            </form> */}
+            <div className="flex flex-col items-center space-y-6 mt-8">
               <p className="text-gray-600 text-center text-lg mb-8">
                 I'm always interested in hearing about new projects and opportunities.
               </p>
