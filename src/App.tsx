@@ -161,14 +161,7 @@ function App() {
                 github: "https://github.com/codewithmanish102003/Calculator",
                 live: "https://basefuncalc.netlify.app/"
               },
-              {
-                title: "Employee Task Management System",
-                description: "Real-time task management application with React.js and MongoDB",
-                image: "Screenshot 2025-06-04 235648.png",
-                tech: ["React","ExpressJS", "MongoDB", "Tailwind"],
-                github: "https://github.com/codewithmanish102003/Work/tree/main/Employee_Management_System",
-                live: "https://emts.netlify.app/"
-              },
+              
               {
                 title: "Spotify Clone",
                 description: "Functional Web App with few features of Play , Pause and Stop",
@@ -183,7 +176,15 @@ function App() {
                 image: "Screenshot 2025-06-06 175046.png",
                 tech: ["JavaScript","NodeJS","ExpressJS","ejs","TailwindCSS" ],
                 github: "https://github.com/codewithmanish102003/GDrive",
-                live: ""
+                live: "https://gdrive-g9z9.onrender.com"
+              },
+              {
+                title: "Employee Task Management System",
+                description: "Real-time task management application with React.js and MongoDB",
+                image: "Screenshot 2025-06-04 235648.png",
+                tech: ["React","ExpressJS", "MongoDB", "Tailwind"],
+                github: "https://github.com/codewithmanish102003/Work/tree/main/Employee_Management_System",
+                live: "https://emts.netlify.app/"
               },
               {
                 title: "E-commerce Website",
