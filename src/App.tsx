@@ -163,9 +163,9 @@ function App() {
               },
               
               {
-                title: "Spotify Clone",
+                title: "Music Web APP",
                 description: "Functional Web App with few features of Play , Pause and Stop",
-                image: "Screenshot 2025-02-22 214713.png",
+                image: "Screenshot 2025-06-07 002536.png",
                 tech: ["HTML", "CSS", "JavaScript","ExpressJS" ],
                 github: "https://github.com/codewithmanish102003/Spotify",
                 live: "https://spotifii.netlify.app/"
