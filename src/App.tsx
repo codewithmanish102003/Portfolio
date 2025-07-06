@@ -189,7 +189,7 @@ function App() {
               {
                 title: "E-commerce Website",
                 description: "E-commerce Website with few features of Add to Cart , Remove from Cart and Checkout",
-                image: "ecommerce.png",
+                image: "ecommerce2.png",
                 tech: ["React", "NodeJS","ExpressJS","MongoDB", "Tailwind","Redux"],
                 github: "https://github.com/codewithmanish102003/New-folder",
                 // live: "https://starwaycollections.netlify.app/"
