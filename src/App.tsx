@@ -163,12 +163,12 @@ function App() {
               },
               
               {
-                title: "Music Web APP",
-                description: "Functional Web App with few features of Play , Pause and Stop",
-                image: "Screenshot 2025-06-07 002536.png",
-                tech: ["HTML", "CSS", "JavaScript","ExpressJS" ],
-                github: "https://github.com/codewithmanish102003/Spotify",
-                live: "https://spotifii.netlify.app/"
+                title: "Simple Blog",
+                description: "A simple blog application built with Node.js, Express, and SQLite",
+                image: "blogweb.png",
+                tech: ["NodeJS", "ExpressJS", "SQLite", "EJS", "TailwindCSS"],
+                github: "https://github.com/codewithmanish102003/BLog-Website",
+                live: "https://simple-blog-8dsc.onrender.com/"
               },
               {
                 title: "GDrive",
