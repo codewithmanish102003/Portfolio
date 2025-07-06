@@ -148,7 +148,7 @@ function App() {
               {
                 title: "Netflix UI Clone",
                 description: "Netflix UI Clone using HTML and CSS",
-                image: "Screenshot 2025-05-28 235010.png",
+                image: "netflix.png",
                 tech: ["HTML", "CSS", "JavaScript", ],
                 github: "https://github.com/codewithmanish102003/Work/tree/main/Netflix",
                 // live: "https://basefuncalc.netlify.app/"
@@ -156,7 +156,7 @@ function App() {
               {
                 title: "Calculator",
                 description: "Functional Calculator Using HTML , CSS and JavaScript",
-                image: "Screenshot 2025-05-26 214958.png",
+                image: "calculator.png",
                 tech: ["HTML", "CSS", "JavaScript", ],
                 github: "https://github.com/codewithmanish102003/Calculator",
                 live: "https://basefuncalc.netlify.app/"
@@ -173,7 +173,7 @@ function App() {
               {
                 title: "GDrive",
                 description: "Basic Web App for uploading,storing and downloading documents.",
-                image: "Screenshot 2025-06-06 175046.png",
+                image: "gdrive.png",
                 tech: ["JavaScript","NodeJS","ExpressJS","ejs","TailwindCSS" ],
                 github: "https://github.com/codewithmanish102003/GDrive",
                 live: "https://gdrive-g9z9.onrender.com"
@@ -181,7 +181,7 @@ function App() {
               {
                 title: "Employee Task Management System",
                 description: "Real-time task management application with React.js and MongoDB",
-                image: "Screenshot 2025-06-04 235648.png",
+                image: "emts.png",
                 tech: ["React","ExpressJS", "MongoDB", "Tailwind"],
                 github: "https://github.com/codewithmanish102003/Work/tree/main/Employee_Management_System",
                 live: "https://emts.netlify.app/"
@@ -189,10 +189,10 @@ function App() {
               {
                 title: "E-commerce Website",
                 description: "E-commerce Website with few features of Add to Cart , Remove from Cart and Checkout",
-                image: "Screenshot 2025-06-04 225118.png",
+                image: "ecommerce.png",
                 tech: ["React", "NodeJS","ExpressJS","MongoDB", "Tailwind","Redux"],
                 github: "https://github.com/codewithmanish102003/New-folder",
-                live: "https://starwaycollections.netlify.app/"
+                // live: "https://starwaycollections.netlify.app/"
               }
             ].map((project, index) => (
               <div key={index} className={isDarkMode ? "bg-gray-800 rounded-xl overflow-hidden shadow-lg" : "bg-white rounded-xl overflow-hidden shadow-lg"}>
@@ -242,7 +242,7 @@ function App() {
             {/* Resume Download Button */}
             <div className="flex justify-center mb-8">
               <a
-                href="Manish Prajapati - CV.pdf"
+                href="Manish Prajapati.pdf"
                 download
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
