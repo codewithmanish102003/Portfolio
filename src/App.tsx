@@ -219,10 +219,10 @@ function App() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: Code2, title: "Frontend", skills: "React, Next.js, TypeScript, Tailwind CSS", color: "from-blue-500 to-cyan-500" },
-              { icon: Server, title: "Backend", skills: "Node.js, Express, REST APIs", color: "from-green-500 to-emerald-500" },
+              { icon: Code2, title: "Frontend", skills: "HTML, CSS, JavaScript, TypeScript, React.js, Redux, Tailwind CSS, Bootstrap", color: "from-blue-500 to-cyan-500" },
+              { icon: Server, title: "Backend", skills: "Node.js, Express.js, Python, Django, REST API", color: "from-green-500 to-emerald-500" },
               { icon: Database, title: "Database", skills: "MongoDB, MySQL", color: "from-purple-500 to-pink-500" },
-              { icon: Layout, title: "Design", skills: "Responsive Design, UI/UX", color: "from-orange-500 to-red-500" }
+              { icon: Layout, title: "Tools", skills: "Postman, Git, GitHub, VS Code, Cursor AI, Cloudinary", color: "from-orange-500 to-red-500" }
             ].map((skill, index) => (
               <div key={index} className="skill-card group">
                 <div className={`p-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl backdrop-blur-sm border ${
@@ -361,6 +361,75 @@ function App() {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section className={isDarkMode ? "py-20 bg-gray-900" : "py-20 bg-gray-50"} id="education">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Education
+          </h2>
+          <div className="space-y-8 max-w-2xl mx-auto">
+            <div className="flex items-start gap-4 bg-gradient-to-r from-blue-900/20 to-purple-900/10 rounded-xl p-6 shadow-lg">
+              <div className="flex-shrink-0">
+                <span className="inline-block w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center text-2xl font-bold text-blue-500">B</span>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-blue-400">Bachelor of Computer Application</h3>
+                <p className="text-gray-300">University Of Rajasthan <span className="text-sm text-gray-400">(Pursuing, 2025)</span></p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 bg-gradient-to-r from-blue-900/10 to-purple-900/5 rounded-xl p-6 shadow">
+              <div className="flex-shrink-0">
+                <span className="inline-block w-12 h-12 bg-green-600/20 rounded-full flex items-center justify-center text-2xl font-bold text-green-500">12</span>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-green-400">XII (RBSE)</h3>
+                <p className="text-gray-300">Welfare Academy <span className="text-sm text-gray-400">89.20% (2022)</span></p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 bg-gradient-to-r from-blue-900/10 to-purple-900/5 rounded-xl p-6 shadow">
+              <div className="flex-shrink-0">
+                <span className="inline-block w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center text-2xl font-bold text-purple-500">10</span>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-purple-400">X (RBSE)</h3>
+                <p className="text-gray-300">Sharda Vidhya Bhawan Sr. Sec. School <span className="text-sm text-gray-400">89.67% (2020)</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className={isDarkMode ? "py-20 bg-gray-800" : "py-20 bg-white"} id="achievements">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Achievements
+          </h2>
+          <ul className="max-w-2xl mx-auto space-y-6">
+            <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
+              <span className="inline-block mt-1 w-8 h-8 bg-blue-600/20 rounded-full flex items-center justify-center text-lg font-bold text-blue-500">✓</span>
+              <span className="text-lg text-gray-300">Certified in <span className="font-semibold text-blue-300">SmartCom 2023</span> and <span className="font-semibold text-purple-300">Namaste Web3</span> from Jaipur</span>
+            </li>
+            <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
+              <span className="inline-block mt-1 w-8 h-8 bg-green-600/20 rounded-full flex items-center justify-center text-lg font-bold text-green-500">✓</span>
+              <span className="text-lg text-gray-300">Completed <span className="font-semibold text-green-300">Upflairs Pvt Ltd Web Development and Designing</span> program in 2024</span>
+            </li>
+            <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
+              <span className="inline-block mt-1 w-8 h-8 bg-yellow-600/20 rounded-full flex items-center justify-center text-lg font-bold text-yellow-500">✓</span>
+              <span className="text-lg text-gray-300">Achieved certification in <span className="font-semibold text-yellow-300">Cloud Computing Basics</span> from Scaler Academy</span>
+            </li>
+            <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
+              <span className="inline-block mt-1 w-8 h-8 bg-pink-600/20 rounded-full flex items-center justify-center text-lg font-bold text-pink-500">✓</span>
+              <span className="text-lg text-gray-300">Completed <span className="font-semibold text-pink-300">Web Development and Designing</span> from Broadcast Engineering Consultants India Limited in 2024</span>
+            </li>
+            <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
+              <span className="inline-block mt-1 w-8 h-8 bg-indigo-600/20 rounded-full flex items-center justify-center text-lg font-bold text-indigo-500">✓</span>
+              <span className="text-lg text-gray-300">Certified in <span className="font-semibold text-indigo-300">All India National Creativity Aptitude Test</span> Conducted by Naukri in 2025</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section ref={contactRef} className={isDarkMode ? "py-24 bg-gray-800 relative" : "py-24 bg-white relative"} id="contact">
         <div className="container mx-auto px-6">
@@ -406,15 +475,70 @@ function App() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20"></div>
-        <div className="relative container mx-auto px-6 text-center">
-          <div className="mb-4">
-            <p className="text-lg font-semibold">Contact: 9649527632</p>
+      <footer className="bg-gradient-to-br from-gray-900 via-gray-950 to-blue-950 text-white pt-16 pb-8 relative overflow-hidden">
+        {/* Decorative SVG wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none" style={{ height: "60px" }}>
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-full">
+            <path d="M0,0 C300,60 900,0 1200,60 L1200,0 L0,0 Z" fill="#1e293b" fillOpacity="0.7" />
+          </svg>
+        </div>
+        <div className="relative container mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
+          {/* Left: About & Contact */}
+          <div className="flex-1 mb-8 md:mb-0 text-left">
+            <h3 className="text-2xl font-bold mb-2 text-blue-400">Manish Prajapati</h3>
+            <p className="text-gray-300 mb-4 max-w-xs">MERN Stack Developer passionate about building modern, scalable web apps.</p>
+            <div className="flex items-center space-x-3">
+              <Mail className="w-5 h-5 text-blue-400" />
+              <a href="mailto:marveluniverse1942@gmail.com" className="hover:underline text-gray-200">marveluniverse1942@gmail.com</a>
+            </div>
+            <div className="flex items-center space-x-3 mt-2">
+              <span className="font-semibold text-blue-400">Call:</span>
+              <a href="tel:9649527632" className="hover:underline text-gray-200">9649527632</a>
+            </div>
           </div>
-          <p className="text-gray-400">© {new Date().getFullYear()} Manish Prajapati. All rights reserved.</p>
+          {/* Center: Social Links */}
+          <div className="flex-1 flex flex-col items-center">
+            <h4 className="text-lg font-semibold mb-4 text-blue-300">Connect with me</h4>
+            <div className="flex space-x-5 mb-4">
+              {[
+                { icon: Github, href: "https://github.com/codewithmanish102003", label: "GitHub", color: "hover:bg-gray-800" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/manish-prajapati-651a212aa", label: "LinkedIn", color: "hover:bg-blue-600" },
+                { icon: Mail, href: "mailto:marveluniverse1942@gmail.com", label: "Email", color: "hover:bg-red-500" }
+              ].map((social, index) => (
+                <a 
+                  key={index}
+                  href={social.href}
+                  target={social.icon !== Mail ? "_blank" : undefined}
+                  rel={social.icon !== Mail ? "noopener noreferrer" : undefined}
+                  className={`group p-3 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-300 hover:scale-110 hover:shadow-xl ${social.color} hover:text-white`}
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-7 h-7 transition-transform duration-300 group-hover:scale-125" />
+                </a>
+              ))}
+            </div>
+            <a
+              href="Manish Prajapati.pdf"
+              download
+              className="inline-flex items-center px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+            >
+              <span>Download Resume</span>
+              <span className="ml-2">↓</span>
+            </a>
+          </div>
+          {/* Right: Quick Links */}
+          <div className="flex-1 flex flex-col items-end sm:items-center">
+            <h4 className="text-lg font-semibold mb-4 text-blue-300">Quick Links</h4>
+            <nav className="flex flex-col items-end space-y-2">
+              <a href="#skills" className="hover:text-blue-400 transition-colors">Skills</a>
+              <a href="#projects" className="hover:text-blue-400 transition-colors">Projects</a>
+              <a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a>
+            </nav>
+          </div>
+        </div>
+        <div className="relative container mx-auto px-6 text-center mt-12 border-t border-gray-800 pt-6">
+          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Manish Prajapati. All rights reserved.</p>
         </div>
       </footer>
     </div>
