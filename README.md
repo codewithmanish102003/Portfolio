@@ -5,7 +5,7 @@ A responsive and modern portfolio website built to showcase my skills, projects,
 
 🔧 Tech Stack:  
 - Frontend: Next.js | TypeScript | Tailwind CSS
-- Animations: Framer Motion 
+- Animations: Framer Motion | GSAP
 - Hosting: Netlify
 
 🚀 Features:  
