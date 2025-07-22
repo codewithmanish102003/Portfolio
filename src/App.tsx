@@ -1,17 +1,30 @@
+import emailjs from '@emailjs/browser';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, Moon, Server, Sun, X } from 'lucide-react';
+import { ArrowUp, X as CloseIcon, Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, Server, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
   const heroRef = useRef<HTMLElement>(null);
   const skillsRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
+  const educationRef = useRef<HTMLElement>(null);
+  const achievementsRef = useRef<HTMLElement>(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [sending, setSending] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   useEffect(() => {
     // Set initial visibility for all elements
@@ -83,6 +96,93 @@ function App() {
       ease: 'power2.out'
     });
 
+    // Section reveal animations
+    if (skillsRef.current) {
+      gsap.fromTo(
+        skillsRef.current,
+        { y: 60, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: skillsRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+          duration: 1,
+          y: 0,
+          opacity: 1,
+          ease: 'power2.out',
+        }
+      );
+    }
+    if (projectsRef.current) {
+      gsap.fromTo(
+        projectsRef.current,
+        { y: 60, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: projectsRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+          duration: 1,
+          y: 0,
+          opacity: 1,
+          ease: 'power2.out',
+        }
+      );
+    }
+    if (educationRef.current) {
+      gsap.fromTo(
+        educationRef.current,
+        { y: 60, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: educationRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+          duration: 1,
+          y: 0,
+          opacity: 1,
+          ease: 'power2.out',
+        }
+      );
+    }
+    if (achievementsRef.current) {
+      gsap.fromTo(
+        achievementsRef.current,
+        { y: 60, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: achievementsRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+          duration: 1,
+          y: 0,
+          opacity: 1,
+          ease: 'power2.out',
+        }
+      );
+    }
+    if (contactRef.current) {
+      gsap.fromTo(
+        contactRef.current,
+        { y: 60, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: contactRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+          duration: 1,
+          y: 0,
+          opacity: 1,
+          ease: 'power2.out',
+        }
+      );
+    }
+
     // Floating animation for hero image
     gsap.to('.hero-image img', {
       duration: 3,
@@ -104,19 +204,69 @@ function App() {
       ease: 'none'
     });
 
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    setFeedback(null);
+    try {
+      // Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY with your EmailJS credentials
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      setFeedback({ type: 'success', message: 'Message sent successfully!' });
+      setForm({ name: '', email: '', message: '' });
+    } catch (error) {
+      setFeedback({ type: 'error', message: 'Failed to send message. Please try again later.' });
+    } finally {
+      setSending(false);
+    }
+  };
+
+  // Modal close handler
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedProject(null);
   };
 
   return (
-    <div className={isDarkMode ? "min-h-screen bg-gray-900 text-white transition-colors duration-500" : "min-h-screen bg-gray-50 text-black transition-colors duration-500"}>
+    <div className="min-h-screen bg-gray-900 text-white transition-colors duration-500">
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg hover:scale-110 transition-all duration-300"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
       {/* Navigation */}
-      <nav className={isDarkMode ? "bg-gray-800/95 backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-gray-700" : "bg-white/95 backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-gray-200"}>
+      <nav className="bg-gray-800/95 backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-gray-700">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center h-16">
-            <a href="#" className={isDarkMode ? "text-xl font-bold text-white hover:text-blue-400 transition-colors" : "text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors"}>
+            <a href="#" className="text-xl font-bold text-white hover:text-blue-400 transition-colors">
               Manish Prajapati
             </a>
             
@@ -130,21 +280,18 @@ function App() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#skills" className={isDarkMode ? "text-gray-300 hover:text-white transition-all duration-300 relative group" : "text-gray-600 hover:text-blue-600 transition-all duration-300 relative group"}>
+              <a href="#skills" className="text-gray-300 hover:text-white transition-all duration-300 relative group">
                 Skills
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#projects" className={isDarkMode ? "text-gray-300 hover:text-white transition-all duration-300 relative group" : "text-gray-600 hover:text-blue-600 transition-all duration-300 relative group"}>
+              <a href="#projects" className="text-gray-300 hover:text-white transition-all duration-300 relative group">
                 Projects
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#contact" className={isDarkMode ? "text-gray-300 hover:text-white transition-all duration-300 relative group" : "text-gray-600 hover:text-blue-600 transition-all duration-300 relative group"}>
+              <a href="#contact" className="text-gray-300 hover:text-white transition-all duration-300 relative group">
                 Contact
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <button onClick={toggleTheme} className="ml-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110">
-                {isDarkMode ? <Sun className="w-6 h-6 text-yellow-500" /> : <Moon className="w-6 h-6 text-gray-800" />}
-              </button>
             </div>
           </div>
 
@@ -152,12 +299,9 @@ function App() {
           {isMenuOpen && (
             <div className="md:hidden py-4 animate-fade-in">
               <div className="flex flex-col space-y-4">
-                <a href="#skills" className={isDarkMode ? "text-gray-300 hover:text-white transition-colors" : "text-gray-600 hover:text-blue-600 transition-colors"} onClick={() => setIsMenuOpen(false)}>Skills</a>
-                <a href="#projects" className={isDarkMode ? "text-gray-300 hover:text-white transition-colors" : "text-gray-600 hover:text-blue-600 transition-colors"} onClick={() => setIsMenuOpen(false)}>Projects</a>
-                <a href="#contact" className={isDarkMode ? "text-gray-300 hover:text-white transition-colors" : "text-gray-600 hover:text-blue-600 transition-colors"} onClick={() => setIsMenuOpen(false)}>Contact</a>
-                <button onClick={toggleTheme} className="self-start p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300">
-                  {isDarkMode ? <Sun className="w-6 h-6 text-yellow-500" /> : <Moon className="w-6 h-6 text-gray-800" />}
-                </button>
+                <a href="#skills" className="text-gray-300 hover:text-white transition-colors" onClick={() => setIsMenuOpen(false)}>Skills</a>
+                <a href="#projects" className="text-gray-300 hover:text-white transition-colors" onClick={() => setIsMenuOpen(false)}>Projects</a>
+                <a href="#contact" className="text-gray-300 hover:text-white transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</a>
               </div>
             </div>
           )}
@@ -166,7 +310,7 @@ function App() {
 
       {/* Hero Section */}
       <header ref={heroRef} className="relative overflow-hidden pt-16">
-        <div className={isDarkMode ? "hero-bg absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black" : "hero-bg absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800"}>
+        <div className="hero-bg absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black">
           <div className="absolute inset-0 bg-black/20"></div>
           {/* Animated background elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -212,38 +356,48 @@ function App() {
       </header>
 
       {/* Skills Section */}
-      <section ref={skillsRef} className={isDarkMode ? "py-24 bg-gray-800 relative" : "py-24 bg-white relative"} id="skills">
+      <section ref={skillsRef} className="py-24 bg-gray-800 relative" id="skills">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Technical Expertise
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <Swiper
+            key="skills-swiper"
+            modules={[Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 } // changed from 4 to 3
+            }}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            loop={true}
+            className="!pb-8"
+          >
             {[
               { icon: Code2, title: "Frontend", skills: "HTML, CSS, JavaScript, TypeScript, React.js, Redux, Tailwind CSS, Bootstrap", color: "from-blue-500 to-cyan-500" },
               { icon: Server, title: "Backend", skills: "Node.js, Express.js, Python, Django, REST API", color: "from-green-500 to-emerald-500" },
               { icon: Database, title: "Database", skills: "MongoDB, MySQL", color: "from-purple-500 to-pink-500" },
               { icon: Layout, title: "Tools", skills: "Postman, Git, GitHub, VS Code, Cursor AI, Cloudinary", color: "from-orange-500 to-red-500" }
             ].map((skill, index) => (
-              <div key={index} className="skill-card group">
-                <div className={`p-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl backdrop-blur-sm border ${
-                  isDarkMode 
-                    ? "bg-gray-700/50 border-gray-600 hover:bg-gray-700/70" 
-                    : "bg-gray-50/80 border-gray-200 hover:bg-white/90"
-                }`}>
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${skill.color} p-4 mb-6 group-hover:rotate-12 transition-transform duration-300`}>
-                    <skill.icon className="w-full h-full text-white" />
+              <SwiperSlide key={index}>
+                <div className="skill-card group mt-4">
+                  <div className={"p-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl backdrop-blur-sm border bg-gray-700/50 border-gray-600 hover:bg-gray-700/70"}>
+                    <div className={`w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-r ${skill.color} p-4 mb-6 group-hover:rotate-12 transition-transform duration-300`}>
+                      <skill.icon className="w-12 h-12 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-3">{skill.title}</h3>
+                    <p className="text-gray-300">{skill.skills}</p>
                   </div>
-                  <h3 className="text-2xl font-semibold mb-3">{skill.title}</h3>
-                  <p className={isDarkMode ? "text-gray-300" : "text-gray-600"}>{skill.skills}</p>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section ref={projectsRef} className={isDarkMode ? "py-24 bg-gray-900 relative" : "py-24 bg-gray-50 relative"} id="projects">
+      <section ref={projectsRef} className="py-24 bg-gray-900 relative" id="projects">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Featured Projects
@@ -303,19 +457,15 @@ function App() {
                 gradient: "from-indigo-500 to-purple-500"
               }
             ].map((project, index) => (
-              <div key={index} className="project-card group">
-                <div className={`rounded-2xl overflow-hidden shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl backdrop-blur-sm border ${
-                  isDarkMode 
-                    ? "bg-gray-800/80 border-gray-700 hover:bg-gray-800/90" 
-                    : "bg-white/90 border-gray-200 hover:bg-white"
-                }`}>
+              <div key={index} className="project-card group cursor-pointer" onClick={() => { setSelectedProject(project); setModalOpen(true); }}>
+                <div className={"rounded-2xl overflow-hidden shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl backdrop-blur-sm border bg-gray-800/80 border-gray-700 hover:bg-gray-800/90"}>
                   <div className="relative overflow-hidden">
                     <img src={project.image} alt={project.title} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
                     <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors duration-300">{project.title}</h3>
-                    <p className={`mb-4 ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>{project.description}</p>
+                    <p className="mb-4 text-gray-300">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech, techIndex) => (
                         <span key={techIndex} className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-600 rounded-full text-sm font-medium border border-blue-500/30 backdrop-blur-sm">
@@ -328,11 +478,8 @@ function App() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 ${
-                          isDarkMode 
-                            ? "text-gray-300 hover:text-white hover:bg-gray-700" 
-                            : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
-                        }`}
+                        className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 text-gray-300 hover:text-white hover:bg-gray-700"
+                        onClick={e => e.stopPropagation()}
                       >
                         <Github className="w-5 h-5 mr-2" />
                         Code
@@ -342,11 +489,8 @@ function App() {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 ${
-                            isDarkMode 
-                              ? "text-gray-300 hover:text-white hover:bg-gray-700" 
-                              : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
-                          }`}
+                          className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 text-gray-300 hover:text-white hover:bg-gray-700"
+                          onClick={e => e.stopPropagation()}
                         >
                           <ExternalLink className="w-5 h-5 mr-2" />
                           Live Demo
@@ -359,10 +503,52 @@ function App() {
             ))}
           </div>
         </div>
+        {/* Project Modal */}
+        {modalOpen && selectedProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={closeModal}>
+            <div className="bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full p-8 relative animate-fade-in" onClick={e => e.stopPropagation()}>
+              <button className="absolute top-4 right-4 text-gray-400 hover:text-white" onClick={closeModal} aria-label="Close">
+                <CloseIcon className="w-6 h-6" />
+              </button>
+              <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-48 object-cover rounded-xl mb-6" />
+              <h3 className="text-2xl font-bold mb-2 text-blue-400">{selectedProject.title}</h3>
+              <p className="mb-4 text-gray-300">{selectedProject.description}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {selectedProject.tech.map((tech: string, techIndex: number) => (
+                  <span key={techIndex} className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-600 rounded-full text-sm font-medium border border-blue-500/30 backdrop-blur-sm">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="flex space-x-4">
+                <a 
+                  href={selectedProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 text-gray-300 hover:text-white hover:bg-gray-700"
+                >
+                  <Github className="w-5 h-5 mr-2" />
+                  Code
+                </a>
+                {selectedProject.live && (
+                  <a 
+                    href={selectedProject.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 text-gray-300 hover:text-white hover:bg-gray-700"
+                  >
+                    <ExternalLink className="w-5 h-5 mr-2" />
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Education Section */}
-      <section className={isDarkMode ? "py-20 bg-gray-900" : "py-20 bg-gray-50"} id="education">
+      <section ref={educationRef} className="py-20 bg-gray-900" id="education">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Education
@@ -374,7 +560,7 @@ function App() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-blue-400">Bachelor of Computer Application</h3>
-                <p className="text-gray-300">University Of Rajasthan <span className="text-sm text-gray-400">(Pursuing, 2025)</span></p>
+                <p className="text-gray-300">University Of Rajasthan <span className="text-sm text-gray-400">(CGPA 8.4, 2025)</span></p>
               </div>
             </div>
             <div className="flex items-start gap-4 bg-gradient-to-r from-blue-900/10 to-purple-900/5 rounded-xl p-6 shadow">
@@ -400,7 +586,7 @@ function App() {
       </section>
 
       {/* Achievements Section */}
-      <section className={isDarkMode ? "py-20 bg-gray-800" : "py-20 bg-white"} id="achievements">
+      <section ref={achievementsRef} className="py-20 bg-gray-800" id="achievements">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Achievements
@@ -431,16 +617,57 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section ref={contactRef} className={isDarkMode ? "py-24 bg-gray-800 relative" : "py-24 bg-white relative"} id="contact">
+      <section ref={contactRef} className="py-24 bg-gray-800 relative" id="contact">
         <div className="container mx-auto px-6">
           <div className="contact-content max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Get in Touch
             </h2>
-            <p className={`text-xl mb-12 ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
+            <p className="text-xl mb-12 text-gray-300">
               I'm always interested in hearing about new projects and opportunities. Let's create something amazing together!
             </p>
-            
+            {/* Contact Form */}
+            <form onSubmit={handleFormSubmit} className="max-w-xl mx-auto mb-12 bg-gradient-to-br from-blue-900/10 to-purple-900/10 p-8 rounded-2xl shadow-lg flex flex-col gap-6">
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleFormChange}
+                placeholder="Your Name"
+                required
+                className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleFormChange}
+                placeholder="Your Email"
+                required
+                className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleFormChange}
+                placeholder="Your Message"
+                required
+                rows={5}
+                className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                type="submit"
+                disabled={sending}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {sending ? 'Sending...' : 'Send Message'}
+              </button>
+              {feedback && (
+                <div className={feedback.type === 'success' ? 'text-green-500 font-semibold' : 'text-red-500 font-semibold'}>
+                  {feedback.message}
+                </div>
+              )}
+            </form>
             {/* Resume Download Button */}
             <div className="mb-12">
               <a
