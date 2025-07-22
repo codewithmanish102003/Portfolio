@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUp, X as CloseIcon, Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, Server, X } from 'lucide-react';
+import { ArrowUp, X as CloseIcon, Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, Server, X, RocketIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -25,6 +25,21 @@ function App() {
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isSmallDevice, setIsSmallDevice] = useState(false);
+
+  useEffect(() => {
+    // Check if device is small on mount and resize
+    const checkDeviceSize = () => {
+      setIsSmallDevice(window.innerWidth < 768); // 768px is md breakpoint in Tailwind
+    };
+
+    checkDeviceSize();
+    window.addEventListener('resize', checkDeviceSize);
+
+    return () => {
+      window.removeEventListener('resize', checkDeviceSize);
+    };
+  }, []);
 
   useEffect(() => {
     // Set initial visibility for all elements
@@ -34,67 +49,67 @@ function App() {
 
     // Hero section animations with delay to ensure elements are rendered
     const tl = gsap.timeline({ delay: 0.1 });
-    tl.fromTo('.hero-text', 
+    tl.fromTo('.hero-text',
       { y: 50, opacity: 0 },
       { duration: 1, y: 0, opacity: 1, ease: 'power2.out', stagger: 0.2 }
     )
-    .fromTo('.hero-image', 
-      { scale: 0.9, opacity: 0 },
-      { duration: 1.2, scale: 1, opacity: 1, ease: 'back.out(1.2)' }, 
-      '-=0.6'
-    )
-    .fromTo('.hero-buttons', 
-      { y: 30, opacity: 0 },
-      { duration: 0.8, y: 0, opacity: 1, ease: 'power2.out' }, 
-      '-=0.4'
-    );
+      .fromTo('.hero-image',
+        { scale: 0.9, opacity: 0 },
+        { duration: 1.2, scale: 1, opacity: 1, ease: 'back.out(1.2)' },
+        '-=0.6'
+      )
+      .fromTo('.hero-buttons',
+        { y: 30, opacity: 0 },
+        { duration: 0.8, y: 0, opacity: 1, ease: 'power2.out' },
+        '-=0.4'
+      );
 
     // Skills section animation
-    gsap.fromTo('.skill-card', 
+    gsap.fromTo('.skill-card',
       { y: 50, opacity: 0 },
       {
-      scrollTrigger: {
-        trigger: skillsRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      },
-      duration: 0.6,
-      y: 0,
-      opacity: 1,
-      stagger: 0.2,
-      ease: 'power2.out'
-    });
+        scrollTrigger: {
+          trigger: skillsRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        duration: 0.6,
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        ease: 'power2.out'
+      });
 
     // Projects section animation
-    gsap.fromTo('.project-card', 
+    gsap.fromTo('.project-card',
       { y: 60, opacity: 0 },
       {
-      scrollTrigger: {
-        trigger: projectsRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      },
-      duration: 0.8,
-      y: 0,
-      opacity: 1,
-      stagger: 0.15,
-      ease: 'power2.out'
-    });
+        scrollTrigger: {
+          trigger: projectsRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        duration: 0.8,
+        y: 0,
+        opacity: 1,
+        stagger: 0.15,
+        ease: 'power2.out'
+      });
 
     // Contact section animation
-    gsap.fromTo('.contact-content', 
+    gsap.fromTo('.contact-content',
       { y: 40, opacity: 0 },
       {
-      scrollTrigger: {
-        trigger: contactRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      },
-      duration: 1,
-      y: 0,
-      opacity: 1,
-      ease: 'power2.out'
-    });
+        scrollTrigger: {
+          trigger: contactRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        duration: 1,
+        y: 0,
+        opacity: 1,
+        ease: 'power2.out'
+      });
 
     // Section reveal animations
     if (skillsRef.current) {
@@ -269,9 +284,9 @@ function App() {
             <a href="#" className="text-xl font-bold text-white hover:text-blue-400 transition-colors">
               Manish Prajapati
             </a>
-            
+
             {/* Mobile menu button */}
-            <button 
+            <button
               className="md:hidden transition-transform duration-200 hover:scale-110"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -316,20 +331,20 @@ function App() {
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
-        
+
         <div className="relative container mx-auto px-6 py-24 flex flex-col md:flex-row items-center justify-between gap-10 min-h-screen">
           {/* Profile Image */}
           <div className="hero-image w-full md:w-1/2 mb-8 md:mb-0 md:order-2 flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-              <img 
+              <img
                 src="\1707530238951.jpg"
                 alt="Manish Prajapati"
                 className="relative rounded-full w-80 h-80 object-cover border-4 border-white/20 shadow-2xl backdrop-blur-sm hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
-          
+
           {/* Hero Content */}
           <div className="w-full md:w-1/2 md:order-1 flex flex-col items-center md:items-start text-white">
             <h1 className="hero-text text-6xl md:text-7xl font-bold mb-4 text-center md:text-left bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
@@ -361,27 +376,54 @@ function App() {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Technical Expertise
           </h2>
-          <Swiper
-            key="skills-swiper"
-            modules={[Autoplay]}
-            spaceBetween={24}
-            slidesPerView={1}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 } // changed from 4 to 3
-            }}
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
-            loop={true}
-            className="!pb-8"
-          >
-            {[
-              { icon: Code2, title: "Frontend", skills: "HTML, CSS, JavaScript, TypeScript, React.js, Redux, Tailwind CSS, Bootstrap", color: "from-blue-500 to-cyan-500" },
-              { icon: Server, title: "Backend", skills: "Node.js, Express.js, Python, Django, REST API", color: "from-green-500 to-emerald-500" },
-              { icon: Database, title: "Database", skills: "MongoDB, MySQL", color: "from-purple-500 to-pink-500" },
-              { icon: Layout, title: "Tools", skills: "Postman, Git, GitHub, VS Code, Cursor AI, Cloudinary", color: "from-orange-500 to-red-500" }
-            ].map((skill, index) => (
-              <SwiperSlide key={index}>
-                <div className="skill-card group mt-4">
+          {isSmallDevice ? (
+            // Grid layout for small devices - show all cards
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: Code2,
+                  title: "Languages",
+                  skills: "JavaScript, TypeScript, Python, C, C++, Core Java",
+                  color: "from-blue-500 to-cyan-500",
+                },
+                {
+                  icon: Code2,
+                  title: "Frontend",
+                  skills: "HTML, CSS, JavaScript, Tailwind CSS, Bootstrap",
+                  color: "from-green-500 to-emerald-500",
+                },
+                {
+                  icon: Server,
+                  title: "Backend",
+                  skills: "Node.js, Express.js, Django, GraphQL (basics), REST API",
+                  color: "from-purple-500 to-pink-500",
+                },
+                {
+                  icon: Database,
+                  title: "Database",
+                  skills: "MongoDB, MySQL",
+                  color: "from-orange-500 to-red-500",
+                },
+                {
+                  icon: Layout,
+                  title: "Frameworks & Libraries",
+                  skills: "React.js, Next.js, Django, Bootstrap",
+                  color: "from-blue-500 to-cyan-500",
+                },
+                {
+                  icon: Layout,
+                  title: "Tools & Platforms",
+                  skills: "Git, GitHub, VS Code, Netlify, Render, Vercel, Cloudinary, Postman",
+                  color: "from-green-500 to-emerald-500",
+                },
+                {
+                  icon: RocketIcon,
+                  title: "Currently Learning",
+                  skills: "Advanced Django, Next.js, SEO Optimization, System Design",
+                  color: "from-yellow-500 to-orange-500",
+                }
+              ].map((skill, index) => (
+                <div key={index} className="skill-card group">
                   <div className={"p-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl backdrop-blur-sm border bg-gray-700/50 border-gray-600 hover:bg-gray-700/70"}>
                     <div className={`w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-r ${skill.color} p-4 mb-6 group-hover:rotate-12 transition-transform duration-300`}>
                       <skill.icon className="w-12 h-12 text-white" />
@@ -390,9 +432,81 @@ function App() {
                     <p className="text-gray-300">{skill.skills}</p>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              ))}
+            </div>
+          ) : (
+            // Swiper layout for larger devices
+            <Swiper
+              key="skills-swiper"
+              modules={[Autoplay]}
+              spaceBetween={24}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+              }}
+              autoplay={{ delay: 2500, disableOnInteraction: false }}
+              loop={true}
+              className="!pb-8"
+            >
+              {[
+                {
+                  icon: Code2,
+                  title: "Languages",
+                  skills: "JavaScript, TypeScript, Python, C, C++, Core Java",
+                  color: "from-blue-500 to-cyan-500",
+                },
+                {
+                  icon: Code2,
+                  title: "Frontend",
+                  skills: "HTML, CSS, JavaScript, Tailwind CSS, Bootstrap",
+                  color: "from-green-500 to-emerald-500",
+                },
+                {
+                  icon: Server,
+                  title: "Backend",
+                  skills: "Node.js, Express.js, Django, GraphQL (basics), REST API",
+                  color: "from-purple-500 to-pink-500",
+                },
+                {
+                  icon: Database,
+                  title: "Database",
+                  skills: "MongoDB, MySQL",
+                  color: "from-orange-500 to-red-500",
+                },
+                {
+                  icon: Layout,
+                  title: "Frameworks & Libraries",
+                  skills: "React.js, Next.js, Django, Bootstrap",
+                  color: "from-blue-500 to-cyan-500",
+                },
+                {
+                  icon: Layout,
+                  title: "Tools & Platforms",
+                  skills: "Git, GitHub, VS Code, Netlify, Render, Vercel, Cloudinary, Postman",
+                  color: "from-green-500 to-emerald-500",
+                },
+                {
+                  icon: RocketIcon,
+                  title: "Currently Learning",
+                  skills: "Advanced Django, Next.js, SEO Optimization, System Design",
+                  color: "from-yellow-500 to-orange-500",
+                }
+              ].map((skill, index) => (
+                <SwiperSlide key={index}>
+                  <div className="skill-card group mt-4">
+                    <div className={"p-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl backdrop-blur-sm border bg-gray-700/50 border-gray-600 hover:bg-gray-700/70"}>
+                      <div className={`w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-r ${skill.color} p-4 mb-6 group-hover:rotate-12 transition-transform duration-300`}>
+                        <skill.icon className="w-12 h-12 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-semibold mb-3">{skill.title}</h3>
+                      <p className="text-gray-300">{skill.skills}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
         </div>
       </section>
 
@@ -474,7 +588,7 @@ function App() {
                       ))}
                     </div>
                     <div className="flex space-x-4">
-                      <a 
+                      <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -485,7 +599,7 @@ function App() {
                         Code
                       </a>
                       {project.live && (
-                        <a 
+                        <a
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -521,7 +635,7 @@ function App() {
                 ))}
               </div>
               <div className="flex space-x-4">
-                <a 
+                <a
                   href={selectedProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -531,7 +645,7 @@ function App() {
                   Code
                 </a>
                 {selectedProject.live && (
-                  <a 
+                  <a
                     href={selectedProject.live}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -687,7 +801,7 @@ function App() {
                 { icon: Linkedin, href: "https://www.linkedin.com/in/manish-prajapati-651a212aa", label: "LinkedIn", color: "hover:bg-blue-600" },
                 { icon: Mail, href: "mailto:marveluniverse1942@gmail.com", label: "Email", color: "hover:bg-red-500" }
               ].map((social, index) => (
-                <a 
+                <a
                   key={index}
                   href={social.href}
                   target={social.icon !== Mail ? "_blank" : undefined}
@@ -733,7 +847,7 @@ function App() {
                 { icon: Linkedin, href: "https://www.linkedin.com/in/manish-prajapati-651a212aa", label: "LinkedIn", color: "hover:bg-blue-600" },
                 { icon: Mail, href: "mailto:marveluniverse1942@gmail.com", label: "Email", color: "hover:bg-red-500" }
               ].map((social, index) => (
-                <a 
+                <a
                   key={index}
                   href={social.href}
                   target={social.icon !== Mail ? "_blank" : undefined}
