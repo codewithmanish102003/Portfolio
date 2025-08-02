@@ -2,6 +2,7 @@ import emailjs from '@emailjs/browser';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUp, X as CloseIcon, Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, Server, X, RocketIcon } from 'lucide-react';
+import { title } from 'process';
 import { useEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -483,13 +484,13 @@ function App() {
                 {
                   icon: Layout,
                   title: "Tools & Platforms",
-                  skills: "Git, GitHub, VS Code, Netlify, Render, Vercel, Cloudinary, Postman",
+                  skills: "Git, GitHub, VS Code, Netlify, Render, Cloudinary, Postman",
                   color: "from-green-500 to-emerald-500",
                 },
                 {
                   icon: RocketIcon,
                   title: "Currently Learning",
-                  skills: "Advanced Django, Next.js, SEO Optimization, System Design",
+                  skills: "Django, Next.js, SEO Optimization, System Design",
                   color: "from-yellow-500 to-orange-500",
                 }
               ].map((skill, index) => (
@@ -536,6 +537,15 @@ function App() {
                 gradient: "from-blue-500 to-cyan-500"
               },
               {
+                title: "musicDev - Music Player",
+                description: "Music player application with playlist management and audio controls",
+                image: "musicdev.png",
+                tech: ["HTML", "TailwindCSS", "JavaScript"],
+                github: "https://github.com/codewithmanish102003/musicDev",
+                live: "https://musicdevplay.netlify.app/",
+                gradient: "from-pink-500 to-red-500"
+              },
+              {
                 title: "Simple Blog",
                 description: "A feature-rich blog application with user authentication and content management",
                 image: "blogweb.png",
@@ -548,7 +558,7 @@ function App() {
                 title: "GDrive",
                 description: "Cloud storage solution for uploading, storing and downloading documents securely",
                 image: "gdrive.png",
-                tech: ["JavaScript", "NodeJS", "ExpressJS", "EJS", "TailwindCSS"],
+                tech: ["NodeJS", "ExpressJS", "EJS", "TailwindCSS"],
                 github: "https://github.com/codewithmanish102003/GDrive",
                 live: "https://gdrive-g9z9.onrender.com",
                 gradient: "from-purple-500 to-pink-500"
