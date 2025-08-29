@@ -578,6 +578,7 @@ function App() {
                 image: "ecommerce2.png",
                 tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind", "Redux"],
                 // github: "https://github.com/codewithmanish102003/New-folder",
+                live: "https://starwaycollections.netlify.app",
                 gradient: "from-indigo-500 to-purple-500"
               },
               {
