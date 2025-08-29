@@ -1,8 +1,7 @@
 import emailjs from '@emailjs/browser';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUp, X as CloseIcon, Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, Server, X, RocketIcon } from 'lucide-react';
-import { title } from 'process';
+import { ArrowUp, X as CloseIcon, Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, RocketIcon, Server, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -325,51 +324,208 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <header ref={heroRef} className="relative overflow-hidden pt-16">
-        <div className="hero-bg absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black">
-          <div className="absolute inset-0 bg-black/20"></div>
-          {/* Animated background elements */}
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-
-        <div className="relative container mx-auto px-6 py-24 flex flex-col md:flex-row items-center justify-between gap-10 min-h-screen">
-          {/* Profile Image */}
-          <div className="hero-image w-full md:w-1/2 mb-8 md:mb-0 md:order-2 flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-              <img
-                src="\1707530238951.jpg"
-                alt="Manish Prajapati"
-                className="relative rounded-full w-80 h-80 object-cover border-4 border-white/20 shadow-2xl backdrop-blur-sm hover:scale-105 transition-transform duration-500"
-              />
+      <header ref={heroRef} className="min-h-screen flex items-center justify-center bg-gray-900 text-white relative overflow-hidden pt-24 md:pt-0">
+        <div className="container mx-auto px-6 flex flex-col items-center justify-between relative z-10">
+          {/* Profile Image - Moved to top for mobile */}
+          <div className="w-full flex justify-center items-center mb-12 md:hidden">
+            <div className="relative group">
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur opacity-20 animate-pulse"></div>
+                <img
+                  src="\1707530238951.jpg"
+                  alt="Manish Prajapati - Full Stack Developer"
+                  className="relative rounded-full w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover border-4 border-white/10 shadow-2xl backdrop-blur-sm transition-all duration-500 group-hover:scale-105"
+                  loading="eager"
+                />
+                <div className="absolute -bottom-4 -right-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                  Available for work
+                </div>
+              </div>
             </div>
           </div>
 
+          <div className="w-full flex flex-col md:flex-row items-center">
           {/* Hero Content */}
-          <div className="w-full md:w-1/2 md:order-1 flex flex-col items-center md:items-start text-white">
-            <h1 className="hero-text text-6xl md:text-7xl font-bold mb-4 text-center md:text-left bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-              Manish Prajapati
+          <div className="w-full md:w-1/2 text-center md:text-left hero-text">
+            <div className="mb-2 px-4 py-1.5 bg-blue-900/30 backdrop-blur-sm rounded-full border border-blue-500/30 inline-flex items-center">
+              <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
+              <span className="text-sm font-medium text-blue-200">Available for opportunities</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mt-6 mb-4 text-center md:text-left bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent leading-tight">
+              Hi, I'm Manish Prajapati
             </h1>
-            <h2 className="hero-text text-3xl md:text-4xl font-semibold mb-6 text-center md:text-left text-blue-200">
-              MERN Stack Developer
+            
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left text-blue-100">
+              MERN Stack Developer | Problem Solver | Tech Enthusiast
             </h2>
-            <p className="hero-text text-xl mb-8 text-blue-100 text-center md:text-left max-w-lg leading-relaxed">
-              Crafting robust and scalable web applications with modern technologies. Passionate about creating exceptional user experiences that make a difference.
+            
+            <p className="text-lg md:text-xl mb-8 text-blue-50/90 text-center md:text-left max-w-2xl leading-relaxed">
+              I build exceptional digital experiences using modern web technologies. 
+              With expertise in the MERN stack and a passion for clean code, I transform complex 
+              problems into elegant, user-centric solutions that drive business growth.
             </p>
-            <div className="hero-buttons flex flex-col sm:flex-row gap-4">
-              <a href="#contact" className="group bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
-                <span className="group-hover:mr-2 transition-all duration-300">Get in touch</span>
-                <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full max-w-md">
+              <a 
+                href="#contact" 
+                className="group relative flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-0.5 text-center"
+              >
+                <span className="relative z-10 flex items-center justify-center">
+                  <span className="group-hover:mr-2 transition-all duration-300">Hire Me</span>
+                  <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </a>
-              <a href="#projects" className="group border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
-                <span className="group-hover:mr-2 transition-all duration-300">View my work</span>
-                <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">↓</span>
+              
+              <a 
+                href="#projects" 
+                className="group relative flex-1 bg-transparent border-2 border-blue-500/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-500/10 transition-all duration-300 transform hover:-translate-y-0.5 text-center"
+              >
+                <span className="relative z-10 flex items-center justify-center">
+                  <span className="group-hover:mr-2 transition-all duration-300">View My Work</span>
+                  <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">↓</span>
+                </span>
               </a>
             </div>
+            
+            <div className="mt-12 flex items-center space-x-6">
+              <a href="https://github.com/codewithmanish102003" target="_blank" rel="noopener noreferrer" 
+                className="text-blue-100 hover:text-white transition-colors duration-300"
+                aria-label="GitHub Profile">
+                <Github className="w-6 h-6" />
+              </a>
+              <a href="https://linkedin.com/in/manish-prajapati-651a212aa" target="_blank" rel="noopener noreferrer"
+                className="text-blue-100 hover:text-white transition-colors duration-300"
+                aria-label="LinkedIn Profile">
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a href="mailto:marveluniverse1942@gmail.com" 
+                className="text-blue-100 hover:text-white transition-colors duration-300"
+                aria-label="Email Me">
+                <Mail className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+          
+          {/* Profile Image - Desktop */}
+          <div className="hidden md:flex md:w-1/2 justify-center items-center relative z-10 mt-12 md:mt-0">
+            <div className="relative group">
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur opacity-20 animate-pulse"></div>
+                <img
+                  src="\1707530238951.jpg"
+                  alt="Manish Prajapati - Full Stack Developer"
+                  className="relative rounded-full w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover border-4 border-white/10 shadow-2xl backdrop-blur-sm transition-all duration-500 group-hover:scale-105"
+                  loading="eager"
+                />
+                <div className="absolute -bottom-4 -right-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                  Available for work
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-8 h-12 border-2 border-blue-400 rounded-full flex justify-center p-1">
+            <div className="w-1 h-2 bg-blue-400 rounded-full mt-2 animate-scroll"></div>
           </div>
         </div>
       </header>
+
+      {/* Work Experience Section */}
+      <section className="py-16 md:py-24 bg-gray-900 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              Work Experience
+            </h2>
+            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mt-3 sm:mt-4 rounded-full"></div>
+            <p className="text-lg sm:text-xl text-gray-300 mt-4 sm:mt-6 max-w-3xl mx-auto px-4">
+              My professional journey and the valuable experiences I've gained along the way
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto px-2 sm:px-0">
+            <div className="relative">
+              {/* Timeline line - Hidden on mobile, shown on md and up */}
+              <div className="hidden md:block absolute left-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 transform -translate-x-1/2"></div>
+              
+              {/* Timeline Items */}
+              <div className="space-y-8">
+                {/* Experience 1 */}
+                <div className="relative pl-2 sm:pl-16 md:pl-0 md:pr-16 group">
+                  <div className="md:text-right mb-4 md:mb-0 md:absolute md:right-[calc(50%+40px)] md:w-1/2 pr-0 sm:pr-4 md:pr-10">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">MERN Stack Developer Intern</h3>
+                    <p className="text-blue-300 text-sm sm:text-base">8 Bit System Pvt. Ltd.</p>
+                    <p className="text-xs sm:text-sm text-gray-400">June 2025 - Present</p>
+                  </div>
+                  <div className="hidden md:block absolute left-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-blue-500 rounded-full transform -translate-x-1/2 mt-2 group-hover:scale-125 transition-transform duration-300"></div>
+                  <div className="md:ml-[calc(50%+60px)] bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-gray-700 group-hover:border-blue-500/50 transition-all duration-300">
+                    <h4 className="text-xl font-semibold text-white mb-3">Key Responsibilities</h4>
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <span className="text-blue-400 mr-2">•</span>
+                        <span>Developed and maintained responsive web applications using React, Node.js, and MongoDB</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-400 mr-2">•</span>
+                        <span>Collaborated with cross-functional teams to design and implement new features</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-400 mr-2">•</span>
+                        <span>Optimized application performance and improved load times by 40%</span>
+                      </li>
+                    </ul>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">React</span>
+                      <span className="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">Node.js</span>
+                      <span className="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">MongoDB</span>
+                      <span className="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">Express.js</span>
+
+                    </div>
+                  </div>
+                </div>
+
+                {/* Experience 2 */}
+                <div className="relative pl-2 sm:pl-16 md:pl-0 md:pr-16 group mt-8 sm:mt-0">
+                  <div className="md:hidden mb-4">
+                    <p className="text-blue-300 text-sm sm:text-base">Academic Projects</p>
+                    <p className="text-xs sm:text-sm text-gray-400">Jun 2024 - 2025</p>
+                  </div>
+                  <div className="hidden md:block absolute right-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-purple-500 rounded-full transform translate-x-1/2 mt-2 group-hover:scale-125 transition-transform duration-300"></div>
+                  <div className="md:mr-[calc(50%+10px)] bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-gray-700 group-hover:border-purple-500/50 transition-all duration-300">
+                    <div className="hidden md:block text-right mb-4">
+                      <p className="text-blue-300">Academic Projects</p>
+                      <p className="text-sm text-gray-400">Jun 2024 - 2025</p>
+                    </div>
+                    <h4 className="text-xl font-semibold text-white mb-3">Key Achievements</h4>
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <span className="text-blue-400 mr-2">•</span>
+                        <span>Developed and maintained responsive web applications using React, Node.js, and MongoDB</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-400 mr-2">•</span>
+                        <span>Optimized application performance and improved load times by 40%</span>
+                      </li>
+                    </ul>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-purple-900/50 text-purple-300 text-sm rounded-full">JavaScript</span>
+                      <span className="px-3 py-1 bg-purple-900/50 text-purple-300 text-sm rounded-full">React</span>
+                      <span className="px-3 py-1 bg-purple-900/50 text-purple-300 text-sm rounded-full">Tailwind CSS</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-transparent"></div>
+      </section>
 
       {/* Skills Section */}
       <section ref={skillsRef} className="py-24 bg-gray-800 relative" id="skills">
@@ -512,149 +668,244 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section ref={projectsRef} className="py-24 bg-gray-900 relative" id="projects">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Netflix UI Clone",
-                description: "Netflix UI Clone using HTML and CSS with responsive design and modern animations",
-                image: "netflix.png",
-                tech: ["HTML", "CSS", "JavaScript"],
-                github: "https://github.com/codewithmanish102003/Work/tree/main/Netflix",
-                gradient: "from-red-500 to-pink-500"
-              },
-              {
-                title: "Calculator",
-                description: "Functional Calculator with advanced operations and beautiful UI design",
-                image: "calculator.png",
-                tech: ["HTML", "CSS", "JavaScript"],
-                github: "https://github.com/codewithmanish102003/Calculator",
-                live: "https://basefuncalc.netlify.app/",
-                gradient: "from-blue-500 to-cyan-500"
-              },
-              {
-                title: "musicDev - Music Player",
-                description: "Music player application with playlist management and audio controls",
-                image: "musicdev.png",
-                tech: ["HTML", "TailwindCSS", "JavaScript"],
-                github: "https://github.com/codewithmanish102003/musicDev",
-                live: "https://musicdevplay.netlify.app/",
-                gradient: "from-pink-500 to-red-500"
-              },
-              // {
-              //   title: "Simple Blog",
-              //   description: "A feature-rich blog application with user authentication and content management",
-              //   image: "blogweb.png",
-              //   tech: ["NodeJS", "ExpressJS", "SQLite", "EJS", "TailwindCSS"],
-              //   github: "https://github.com/codewithmanish102003/BLog-Website",
-              //   live: "https://simple-blog-8dsc.onrender.com/",
-              //   gradient: "from-green-500 to-emerald-500"
-              // },
-              // {
-              //   title: "GDrive",
-              //   description: "Cloud storage solution for uploading, storing and downloading documents securely",
-              //   image: "gdrive.png",
-              //   tech: ["NodeJS", "ExpressJS", "EJS", "TailwindCSS","Cloudinary"],
-              //   github: "https://github.com/codewithmanish102003/GDrive",
-              //   live: "https://gdrive-g9z9.onrender.com",
-              //   gradient: "from-purple-500 to-pink-500"
-              // },
-              {
-                title: "Employee Task Management",
-                description: "Real-time task management system with advanced features and analytics",
-                image: "emts.png",
-                tech: ["React", "ExpressJS", "MongoDB", "Tailwind"],
-                github: "https://github.com/codewithmanish102003/Work/tree/main/Employee_Management_System",
-                live: "https://emts.netlify.app/",
-                gradient: "from-orange-500 to-red-500"
-              },
-              {
-                title: "Starway Collections - E-commerce Website",
-                description: "Full-featured e-commerce website with cart management and secure checkout",
-                image: "ecommerce2.png",
-                tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind", "Redux"],
-                // github: "https://github.com/codewithmanish102003/New-folder",
-                live: "https://starwaycollections.netlify.app",
-                gradient: "from-indigo-500 to-purple-500"
-              },
-              {
-                title:"Dosedefence - Pharmacy Centralized Management System",
-                description: "A comprehensive platform for managing pharmacy operations, including inventory, sales, and customer management.",
-                image: "dosedefence.png",
-                tech: ["TypeScript", "React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
-                // github: "https://github.com/codewithmanish102003/DoseDefence",
-                live: "https://dosedefence.com",
-                gradient: "from-pink-500 to-red-500"
-              }
-            ].map((project, index) => (
-              <div key={index} className="project-card group cursor-pointer" onClick={() => { setSelectedProject(project); setModalOpen(true); }}>
-                <div className={"rounded-2xl overflow-hidden shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl backdrop-blur-sm border bg-gray-800/80 border-gray-700 hover:bg-gray-800/90"}>
-                  <div className="relative overflow-hidden">
-                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
+      <section ref={projectsRef} className="py-24 bg-gray-900 relative overflow-hidden" id="projects">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+              Featured Projects
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            <p className="text-xl text-gray-300 mt-6 max-w-3xl mx-auto">
+              A collection of my recent work, showcasing my skills and experience in web development
+            </p>
+          </div>
+          {/* Work Projects Section */}
+          <div className="w-full mb-16">
+            <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Work Projects</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Dosedefence - Pharmacy Centralized Management System",
+                  description: "A comprehensive platform for managing pharmacy operations, including inventory, sales, and customer management.",
+                  image: "dosedefence.png",
+                  tech: ["TypeScript", "React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind","Postman"],
+                  github: "#",
+                  live: "https://dosedefence.com",
+                  gradient: "from-pink-500 to-red-500"
+                },
+                {
+                  title: "Khushi Laptops - Refurbished Laptops Store",
+                  description: "A platform for showcasing and managing refurbished laptops.",
+                  image: "khushilaptop.png",
+                  tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind","Cloudinary"],
+                  github: "#",
+                  live: "https://khushilaptop.com/",
+                  gradient: "from-blue-500 to-purple-500"
+                }
+              ].map((project, index) => (
+                <div 
+                  key={`work-${index}`}
+                  className="group relative overflow-hidden rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10"
+                  onClick={() => { setSelectedProject(project); setModalOpen(true); }}
+                >
+                  <div className="relative overflow-hidden h-56">
+                    <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
+                    <img 
+                      src={`/${project.image}`} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/placeholder.png';
+                      }}
+                    />
+                    <div className="absolute bottom-0 left-0 p-6 w-full">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {project.tech.map((tech, i) => (
+                          <span key={i} className="px-3 py-1 bg-gray-700/80 text-xs font-medium text-gray-200 rounded-full backdrop-blur-sm">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors duration-300">{project.title}</h3>
-                    <p className="mb-4 text-gray-300">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.map((tech, techIndex) => (
-                        <span key={techIndex} className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-600 rounded-full text-sm font-medium border border-blue-500/30 backdrop-blur-sm">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex space-x-4">
-                      <a
-                        href={project.github}
-                        target="_blank"
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 mb-4 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-700">
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 text-gray-300 hover:text-white hover:bg-gray-700"
+                        className="flex items-center text-gray-300 hover:text-white transition-colors group"
                         onClick={e => e.stopPropagation()}
+                        aria-label={`View ${project.title} on GitHub`}
                       >
-                        <Github className="w-5 h-5 mr-2" />
-                        Code
+                        <Github className="w-5 h-5 mr-2 group-hover:text-blue-400 transition-colors" />
+                        <span className="text-sm font-medium">Code</span>
                       </a>
                       {project.live && (
-                        <a
-                          href={project.live}
-                          target="_blank"
+                        <a 
+                          href={project.live} 
+                          target="_blank" 
                           rel="noopener noreferrer"
-                          className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 text-gray-300 hover:text-white hover:bg-gray-700"
+                          className="flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-sm font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 group"
                           onClick={e => e.stopPropagation()}
                         >
-                          <ExternalLink className="w-5 h-5 mr-2" />
-                          Live Demo
+                          <span className="mr-2">Live Demo</span>
+                          <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </a>
                       )}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Academic Projects Section */}
+          <div className="w-full">
+            <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Academic Projects</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                   {
+                    title: "Starway Collections - E-commerce Website",
+                    description: "Full-featured e-commerce website with cart management and secure checkout",
+                    image: "ecommerce2.png",
+                    tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind", "Redux"],
+                    live: "https://starwaycollections.netlify.app",
+                    gradient: "from-indigo-500 to-purple-500"
+                  },
+                {
+                  title: "Employee Task Management",
+                  description: "Real-time task management system with advanced features and analytics",
+                  image: "emts.png",
+                  tech: ["React", "ExpressJS", "MongoDB", "Tailwind"],
+                  github: "https://github.com/codewithmanish102003/Work/tree/main/Employee_Management_System",
+                  live: "https://emts.netlify.app/",
+                  gradient: "from-orange-500 to-red-500"
+                },
+                
+                {
+                  title: "musicDev - Music Player",
+                  description: "Music player application with playlist management and audio controls",
+                  image: "musicdev.png",
+                  tech: ["HTML", "TailwindCSS", "JavaScript"],
+                  github: "https://github.com/codewithmanish102003/musicDev",
+                  live: "https://musicdevplay.netlify.app/",
+                  gradient: "from-pink-500 to-red-500"
+                },
+              
+                {
+                  title: "Calculator",
+                  description: "Functional Calculator with advanced operations and beautiful UI design",
+                  image: "calculator.png",
+                  tech: ["HTML", "CSS", "JavaScript"],
+                  github: "https://github.com/codewithmanish102003/Calculator",
+                  live: "https://basefuncalc.netlify.app/",
+                  gradient: "from-blue-500 to-cyan-500"
+                },
+                {
+                  title: "Netflix UI Clone",
+                  description: "Netflix UI Clone using HTML and CSS with responsive design and modern animations",
+                  image: "netflix.png",
+                  tech: ["HTML", "CSS", "JavaScript"],
+                  github: "https://github.com/codewithmanish102003/Work/tree/main/Netflix",
+                  gradient: "from-red-500 to-pink-500"
+                }
+              ].map((project, index) => (
+                <div 
+                  key={`academic-${index}`}
+                  className="group relative overflow-hidden rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10"
+                  onClick={() => { setSelectedProject(project); setModalOpen(true); }}
+                >
+                  <div className="relative overflow-hidden h-56">
+                    <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
+                    <img 
+                      src={`/${project.image}`} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/placeholder.png';
+                      }}
+                    />
+                    <div className="absolute bottom-0 left-0 p-6 w-full">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {project.tech.map((tech, i) => (
+                          <span key={i} className="px-3 py-1 bg-gray-700/80 text-xs font-medium text-gray-200 rounded-full backdrop-blur-sm">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 mb-4 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-700">
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center text-gray-300 hover:text-white transition-colors group"
+                        onClick={e => e.stopPropagation()}
+                        aria-label={`View ${project.title} on GitHub`}
+                      >
+                        <Github className="w-5 h-5 mr-2 group-hover:text-purple-400 transition-colors" />
+                        <span className="text-sm font-medium">Code</span>
+                      </a>
+                      {project.live && (
+                        <a 
+                          href={project.live} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white text-sm font-medium rounded-lg hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group"
+                          onClick={e => e.stopPropagation()}
+                        >
+                          <span className="mr-2">Live Demo</span>
+                          <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        {/* Project Modal */}
-        {modalOpen && selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={closeModal}>
-            <div className="bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full p-8 relative animate-fade-in" onClick={e => e.stopPropagation()}>
-              <button className="absolute top-4 right-4 text-gray-400 hover:text-white" onClick={closeModal} aria-label="Close">
-                <CloseIcon className="w-6 h-6" />
-              </button>
-              <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-48 object-cover rounded-xl mb-6" />
-              <h3 className="text-2xl font-bold mb-2 text-blue-400">{selectedProject.title}</h3>
-              <p className="mb-4 text-gray-300">{selectedProject.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedProject.tech.map((tech: string, techIndex: number) => (
-                  <span key={techIndex} className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-600 rounded-full text-sm font-medium border border-blue-500/30 backdrop-blur-sm">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex space-x-4">
+      </section>
+
+      {/* Project Modal */}
+      {modalOpen && selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={closeModal}>
+          <div className="bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full p-8 relative animate-fade-in" onClick={e => e.stopPropagation()}>
+            <button className="absolute top-4 right-4 text-gray-400 hover:text-white" onClick={closeModal} aria-label="Close">
+              <CloseIcon className="w-6 h-6" />
+            </button>
+            <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-48 object-cover rounded-xl mb-6" />
+            <h3 className="text-2xl font-bold mb-2 text-blue-400">{selectedProject.title}</h3>
+            <p className="mb-4 text-gray-300">{selectedProject.description}</p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {selectedProject.tech.map((tech: string, techIndex: number) => (
+                <span key={techIndex} className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-600 rounded-full text-sm font-medium border border-blue-500/30 backdrop-blur-sm">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <div className="flex space-x-4">
+              {selectedProject.github && (
                 <a
                   href={selectedProject.github}
                   target="_blank"
@@ -664,7 +915,8 @@ function App() {
                   <Github className="w-5 h-5 mr-2" />
                   Code
                 </a>
-                {selectedProject.live && (
+              )}
+              {selectedProject.live && (
                   <a
                     href={selectedProject.live}
                     target="_blank"
@@ -679,7 +931,6 @@ function App() {
             </div>
           </div>
         )}
-      </section>
 
       {/* Education Section */}
       <section ref={educationRef} className="py-20 bg-gray-900" id="education">
