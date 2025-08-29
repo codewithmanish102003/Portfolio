@@ -558,7 +558,7 @@ function App() {
               //   title: "GDrive",
               //   description: "Cloud storage solution for uploading, storing and downloading documents securely",
               //   image: "gdrive.png",
-              //   tech: ["NodeJS", "ExpressJS", "EJS", "TailwindCSS"],
+              //   tech: ["NodeJS", "ExpressJS", "EJS", "TailwindCSS","Cloudinary"],
               //   github: "https://github.com/codewithmanish102003/GDrive",
               //   live: "https://gdrive-g9z9.onrender.com",
               //   gradient: "from-purple-500 to-pink-500"
@@ -585,7 +585,7 @@ function App() {
                 title:"Dosedefence - Pharmacy Centralized Management System",
                 description: "A comprehensive platform for managing pharmacy operations, including inventory, sales, and customer management.",
                 image: "dosedefence.png",
-                tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
+                tech: ["TypeScript", "React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
                 // github: "https://github.com/codewithmanish102003/DoseDefence",
                 live: "https://dosedefence.com",
                 gradient: "from-pink-500 to-red-500"
