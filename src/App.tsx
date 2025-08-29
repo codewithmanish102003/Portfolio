@@ -545,24 +545,24 @@ function App() {
                 live: "https://musicdevplay.netlify.app/",
                 gradient: "from-pink-500 to-red-500"
               },
-              {
-                title: "Simple Blog",
-                description: "A feature-rich blog application with user authentication and content management",
-                image: "blogweb.png",
-                tech: ["NodeJS", "ExpressJS", "SQLite", "EJS", "TailwindCSS"],
-                github: "https://github.com/codewithmanish102003/BLog-Website",
-                live: "https://simple-blog-8dsc.onrender.com/",
-                gradient: "from-green-500 to-emerald-500"
-              },
-              {
-                title: "GDrive",
-                description: "Cloud storage solution for uploading, storing and downloading documents securely",
-                image: "gdrive.png",
-                tech: ["NodeJS", "ExpressJS", "EJS", "TailwindCSS"],
-                github: "https://github.com/codewithmanish102003/GDrive",
-                live: "https://gdrive-g9z9.onrender.com",
-                gradient: "from-purple-500 to-pink-500"
-              },
+              // {
+              //   title: "Simple Blog",
+              //   description: "A feature-rich blog application with user authentication and content management",
+              //   image: "blogweb.png",
+              //   tech: ["NodeJS", "ExpressJS", "SQLite", "EJS", "TailwindCSS"],
+              //   github: "https://github.com/codewithmanish102003/BLog-Website",
+              //   live: "https://simple-blog-8dsc.onrender.com/",
+              //   gradient: "from-green-500 to-emerald-500"
+              // },
+              // {
+              //   title: "GDrive",
+              //   description: "Cloud storage solution for uploading, storing and downloading documents securely",
+              //   image: "gdrive.png",
+              //   tech: ["NodeJS", "ExpressJS", "EJS", "TailwindCSS"],
+              //   github: "https://github.com/codewithmanish102003/GDrive",
+              //   live: "https://gdrive-g9z9.onrender.com",
+              //   gradient: "from-purple-500 to-pink-500"
+              // },
               {
                 title: "Employee Task Management",
                 description: "Real-time task management system with advanced features and analytics",
@@ -573,12 +573,21 @@ function App() {
                 gradient: "from-orange-500 to-red-500"
               },
               {
-                title: "E-commerce Platform",
+                title: "Starway Collections - E-commerce Website",
                 description: "Full-featured e-commerce website with cart management and secure checkout",
                 image: "ecommerce2.png",
                 tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind", "Redux"],
-                github: "https://github.com/codewithmanish102003/New-folder",
+                // github: "https://github.com/codewithmanish102003/New-folder",
                 gradient: "from-indigo-500 to-purple-500"
+              },
+              {
+                title:"Dosedefence - Pharmacy Centralized Management System",
+                description: "A comprehensive platform for managing pharmacy operations, including inventory, sales, and customer management.",
+                image: "dosedefence.png",
+                tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
+                // github: "https://github.com/codewithmanish102003/DoseDefence",
+                live: "https://dosedefence.com",
+                gradient: "from-pink-500 to-red-500"
               }
             ].map((project, index) => (
               <div key={index} className="project-card group cursor-pointer" onClick={() => { setSelectedProject(project); setModalOpen(true); }}>
