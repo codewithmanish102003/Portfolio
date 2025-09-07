@@ -789,7 +789,7 @@ function App() {
                     image: "gdrive.png",
                     tech: ["EJS", "NodeJS", "ExpressJS", "MongoDB", "Tailwind", "Cloudinary"],
                     github: "https://github.com/codewithmanish102003/Work/tree/main/GDrive",
-                    live: "https://gdrive.netlify.app/",
+                    live: "https://gdrive-g9z9.onrender.com/",
                     gradient: "from-green-500 to-blue-500"
                   },
                   {
