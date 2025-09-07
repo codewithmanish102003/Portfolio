@@ -775,14 +775,14 @@ function App() {
             <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Academic Projects</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                   {
-                    title: "Starway Collections - E-commerce Website",
-                    description: "Full-featured e-commerce website with cart management and secure checkout",
-                    image: "ecommerce2.png",
-                    tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind", "Redux"],
-                    live: "https://starwaycollections.netlify.app",
-                    gradient: "from-indigo-500 to-purple-500"
-                  },
+                  //  {
+                  //   title: "Starway Collections - E-commerce Website",
+                  //   description: "Full-featured e-commerce website with cart management and secure checkout",
+                  //   image: "ecommerce2.png",
+                  //   tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind", "Redux"],
+                  //   live: "https://starwaycollections.netlify.app",
+                  //   gradient: "from-indigo-500 to-purple-500"
+                  // },
                   {
                     title: "GDrive - Storage Management System",
                     description: "A cloud storage management system with file upload, download, and sharing capabilities",
