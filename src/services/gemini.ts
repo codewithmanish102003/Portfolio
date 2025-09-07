@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_GEMINI_API_KEY;
 
-console.log("API_KEY:", API_KEY); // Add this line to verify the API key
+console.log("API_KEY:", API_KEY);
 
 if (!API_KEY) {
   throw new Error("Google Gemini API key is missing");

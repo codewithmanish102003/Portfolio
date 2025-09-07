@@ -783,10 +783,19 @@ function App() {
                     live: "https://starwaycollections.netlify.app",
                     gradient: "from-indigo-500 to-purple-500"
                   },
-                {
-                  title: "Employee Task Management",
-                  description: "Real-time task management system with advanced features and analytics",
-                  image: "emts.png",
+                  {
+                    title: "GDrive - Storage Management System",
+                    description: "A cloud storage management system with file upload, download, and sharing capabilities",
+                    image: "gdrive.png",
+                    tech: ["EJS", "NodeJS", "ExpressJS", "MongoDB", "Tailwind", "Cloudinary"],
+                    github: "https://github.com/codewithmanish102003/Work/tree/main/GDrive",
+                    live: "https://gdrive.netlify.app/",
+                    gradient: "from-green-500 to-blue-500"
+                  },
+                  {
+                    title: "Employee Task Management",
+                    description: "Real-time task management system with advanced features and analytics",
+                    image: "emts.png",
                   tech: ["React", "ExpressJS", "MongoDB", "Tailwind"],
                   github: "https://github.com/codewithmanish102003/Work/tree/main/Employee_Management_System",
                   live: "https://emts.netlify.app/",
