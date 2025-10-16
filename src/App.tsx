@@ -10,6 +10,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  github?: string;
+  live?: string;
+  gradient: string;
+};
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -24,8 +34,17 @@ function App() {
   const [sending, setSending] = useState(false);
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isSmallDevice, setIsSmallDevice] = useState(false);
+  const [accent, setAccent] = useState<'blue' | 'green' | 'purple'>('blue');
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const dialogCloseBtnRef = useRef<HTMLButtonElement | null>(null);
+
+  const accentGradient = () => {
+    if (accent === 'green') return 'from-green-600 to-emerald-600';
+    if (accent === 'purple') return 'from-purple-600 to-pink-600';
+    return 'from-blue-600 to-purple-600';
+  };
 
   useEffect(() => {
     // Check if device is small on mount and resize
@@ -40,6 +59,21 @@ function App() {
       window.removeEventListener('resize', checkDeviceSize);
     };
   }, []);
+
+  // Accessibility: close modal on Escape and focus close button
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && modalOpen) {
+        e.preventDefault();
+        closeModal();
+      }
+    };
+    if (modalOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      setTimeout(() => dialogCloseBtnRef.current?.focus(), 0);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [modalOpen]);
 
   useEffect(() => {
     // Set initial visibility for all elements
@@ -238,6 +272,17 @@ function App() {
     e.preventDefault();
     setSending(true);
     setFeedback(null);
+    const nextErrors: { name?: string; email?: string; message?: string } = {};
+    if (!form.name.trim()) nextErrors.name = 'Please enter your name';
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+    if (!emailOk) nextErrors.email = 'Please enter a valid email';
+    if (form.message.trim().length < 10) nextErrors.message = 'Message should be at least 10 characters';
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) {
+      setSending(false);
+      setFeedback({ type: 'error', message: 'Please fix the highlighted fields.' });
+      return;
+    }
     try {
       // Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY with your EmailJS credentials
       await emailjs.send(
@@ -252,7 +297,7 @@ function App() {
       );
       setFeedback({ type: 'success', message: 'Message sent successfully!' });
       setForm({ name: '', email: '', message: '' });
-    } catch (error) {
+    } catch {
       setFeedback({ type: 'error', message: 'Failed to send message. Please try again later.' });
     } finally {
       setSending(false);
@@ -369,13 +414,13 @@ function App() {
             <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full max-w-md">
               <a 
                 href="#contact" 
-                className="group relative flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-0.5 text-center"
+                className={`group relative flex-1 bg-gradient-to-r ${accentGradient()} text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-center`}
               >
                 <span className="relative z-10 flex items-center justify-center">
                   <span className="group-hover:mr-2 transition-all duration-300">Hire Me</span>
                   <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-white"></div>
               </a>
               
               <a 
@@ -697,25 +742,29 @@ function App() {
                   gradient: "from-pink-500 to-red-500"
                 },
                 {
-                  title: "Khushi Laptops - Refurbished Laptops Store",
-                  description: "A platform for showcasing and managing refurbished laptops.",
-                  image: "khushilaptop.png",
-                  tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind","Cloudinary"],
+                  title: "Meera Mines - Mining Company",
+                  description: "A platform for showcasing and managing mining operations.",
+                  image: "meeramines.jpg",
+                  tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
                   github: "#",
-                  live: "https://khushilaptop.com/",
+                  live: "http://13.236.183.167/",
                   gradient: "from-blue-500 to-purple-500"
                 }
               ].map((project, index) => (
                 <div 
                   key={`work-${index}`}
-                  className="group relative overflow-hidden rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10"
+                  className="group relative overflow-hidden rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  role="button" tabIndex={0}
+                  aria-label={`Open details for ${project.title}`}
                   onClick={() => { setSelectedProject(project); setModalOpen(true); }}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedProject(project); setModalOpen(true); } }}
                 >
                   <div className="relative overflow-hidden h-56">
                     <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
                     <img 
                       src={`/${project.image}`} 
                       alt={project.title}
+                      loading="lazy" decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
@@ -832,14 +881,18 @@ function App() {
               ].map((project, index) => (
                 <div 
                   key={`academic-${index}`}
-                  className="group relative overflow-hidden rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10"
+                  className="group relative overflow-hidden rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  role="button" tabIndex={0}
+                  aria-label={`Open details for ${project.title}`}
                   onClick={() => { setSelectedProject(project); setModalOpen(true); }}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedProject(project); setModalOpen(true); } }}
                 >
                   <div className="relative overflow-hidden h-56">
                     <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
                     <img 
                       src={`/${project.image}`} 
                       alt={project.title}
+                      loading="lazy" decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
@@ -898,13 +951,13 @@ function App() {
 
       {/* Project Modal */}
       {modalOpen && selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={closeModal}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={closeModal} role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
           <div className="bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full p-8 relative animate-fade-in" onClick={e => e.stopPropagation()}>
-            <button className="absolute top-4 right-4 text-gray-400 hover:text-white" onClick={closeModal} aria-label="Close">
+            <button ref={dialogCloseBtnRef} className="absolute top-4 right-4 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500 rounded" onClick={closeModal} aria-label="Close">
               <CloseIcon className="w-6 h-6" />
             </button>
-            <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-48 object-cover rounded-xl mb-6" />
-            <h3 className="text-2xl font-bold mb-2 text-blue-400">{selectedProject.title}</h3>
+            <img src={`/${selectedProject.image}`} alt={selectedProject.title} className="w-full h-48 object-cover rounded-xl mb-6" loading="eager" />
+            <h3 id="project-modal-title" className="text-2xl font-bold mb-2 text-blue-400">{selectedProject.title}</h3>
             <p className="mb-4 text-gray-300">{selectedProject.description}</p>
             <div className="flex flex-wrap gap-2 mb-4">
               {selectedProject.tech.map((tech: string, techIndex: number) => (
@@ -1029,8 +1082,11 @@ function App() {
                 onChange={handleFormChange}
                 placeholder="Your Name"
                 required
-                className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? 'err-name' : undefined}
+                className={`bg-gray-800 text-white border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 ${errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-600 focus:ring-blue-500'}`}
               />
+              {errors.name && <span id="err-name" className="text-sm text-red-500 text-left">{errors.name}</span>}
               <input
                 type="email"
                 name="email"
@@ -1038,8 +1094,11 @@ function App() {
                 onChange={handleFormChange}
                 placeholder="Your Email"
                 required
-                className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? 'err-email' : undefined}
+                className={`bg-gray-800 text-white border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-600 focus:ring-blue-500'}`}
               />
+              {errors.email && <span id="err-email" className="text-sm text-red-500 text-left">{errors.email}</span>}
               <textarea
                 name="message"
                 value={form.message}
@@ -1047,14 +1106,23 @@ function App() {
                 placeholder="Your Message"
                 required
                 rows={5}
-                className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? 'err-message' : undefined}
+                className={`bg-gray-800 text-white border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 ${errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-600 focus:ring-blue-500'}`}
               />
+              {errors.message && <span id="err-message" className="text-sm text-red-500 text-left">{errors.message}</span>}
               <button
                 type="submit"
                 disabled={sending}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                className={`bg-gradient-to-r ${accentGradient()} text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2`}
               >
-                {sending ? 'Sending...' : 'Send Message'}
+                {sending && (
+                  <svg className="h-5 w-5 animate-spin text-white" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                  </svg>
+                )}
+                <span>{sending ? 'Sending...' : 'Send Message'}</span>
               </button>
               {feedback && (
                 <div className={feedback.type === 'success' ? 'text-green-500 font-semibold' : 'text-red-500 font-semibold'}>
@@ -1162,6 +1230,13 @@ function App() {
           <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Manish Prajapati. All rights reserved.</p>
         </div>
       </footer>
+
+      {/* Accent color switcher */}
+      <div className="fixed bottom-6 left-6 z-50 bg-gray-800/80 backdrop-blur-md border border-gray-700 rounded-full p-2 flex items-center gap-2 shadow-lg" role="group" aria-label="Accent color switcher">
+        <button onClick={() => setAccent('blue')} className={`w-6 h-6 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 ${accent==='blue' ? 'ring-2 ring-white' : ''}`} aria-label="Set blue accent"></button>
+        <button onClick={() => setAccent('green')} className={`w-6 h-6 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 ${accent==='green' ? 'ring-2 ring-white' : ''}`} aria-label="Set green accent"></button>
+        <button onClick={() => setAccent('purple')} className={`w-6 h-6 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 ${accent==='purple' ? 'ring-2 ring-white' : ''}`} aria-label="Set purple accent"></button>
+      </div>
     </div>
   );
 }
