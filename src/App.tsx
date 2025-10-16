@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUp, X as CloseIcon, Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, RocketIcon, Server, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { toast } from 'sonner';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
@@ -294,10 +295,10 @@ function App() {
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-      setFeedback({ type: 'success', message: 'Message sent successfully!' });
+      toast.success('Message sent successfully!');
       setForm({ name: '', email: '', message: '' });
     } catch {
-      setFeedback({ type: 'error', message: 'Failed to send message. Please try again later.' });
+      toast.error('Failed to send message. Please try again later.');
     } finally {
       setSending(false);
     }
