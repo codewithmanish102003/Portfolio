@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUp, X as CloseIcon, Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, RocketIcon, Server, X } from 'lucide-react';
+import { ArrowUp, BrainIcon, X as CloseIcon, Code2, Database, ExternalLink, Github, Layout, Linkedin, Mail, Menu, RocketIcon, Server, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
 import 'swiper/css';
@@ -48,9 +48,8 @@ function App() {
   };
 
   useEffect(() => {
-    // Check if device is small on mount and resize
     const checkDeviceSize = () => {
-      setIsSmallDevice(window.innerWidth < 768); // 768px is md breakpoint in Tailwind
+      setIsSmallDevice(window.innerWidth < 768);
     };
 
     checkDeviceSize();
@@ -61,7 +60,6 @@ function App() {
     };
   }, []);
 
-  // Accessibility: close modal on Escape and focus close button
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && modalOpen) {
@@ -77,12 +75,9 @@ function App() {
   }, [modalOpen]);
 
   useEffect(() => {
-    // Set initial visibility for all elements
     gsap.set('.hero-text, .hero-image, .hero-buttons, .skill-card, .project-card, .contact-content', {
       opacity: 1
     });
-
-    // Hero section animations with delay to ensure elements are rendered
     const tl = gsap.timeline({ delay: 0.1 });
     tl.fromTo('.hero-text',
       { y: 50, opacity: 0 },
@@ -99,7 +94,6 @@ function App() {
         '-=0.4'
       );
 
-    // Skills section animation
     gsap.fromTo('.skill-card',
       { y: 50, opacity: 0 },
       {
@@ -115,7 +109,6 @@ function App() {
         ease: 'power2.out'
       });
 
-    // Projects section animation
     gsap.fromTo('.project-card',
       { y: 60, opacity: 0 },
       {
@@ -131,7 +124,6 @@ function App() {
         ease: 'power2.out'
       });
 
-    // Contact section animation
     gsap.fromTo('.contact-content',
       { y: 40, opacity: 0 },
       {
@@ -145,8 +137,6 @@ function App() {
         opacity: 1,
         ease: 'power2.out'
       });
-
-    // Section reveal animations
     if (skillsRef.current) {
       gsap.fromTo(
         skillsRef.current,
@@ -233,7 +223,6 @@ function App() {
       );
     }
 
-    // Floating animation for hero image
     gsap.to('.hero-image img', {
       duration: 3,
       y: -20,
@@ -242,7 +231,6 @@ function App() {
       repeat: -1
     });
 
-    // Parallax effect for hero background (optional)
     gsap.to('.hero-bg', {
       scrollTrigger: {
         trigger: heroRef.current,
@@ -621,7 +609,12 @@ function App() {
                 {
                   icon: RocketIcon,
                   title: "Currently Learning",
-                  skills: "Advanced Django, Next.js, SEO Optimization, System Design",
+                  skills: "Next.js, SEO Optimization, System Design,Flask",
+                  color: "from-yellow-500 to-orange-500",
+                },{
+                  icon: BrainIcon,
+                  title: "Future Goals",
+                  skills: "AI, Machine Learning, Deep Learning, Blockchain",
                   color: "from-yellow-500 to-orange-500",
                 }
               ].map((skill, index) => (
@@ -694,6 +687,12 @@ function App() {
                   skills: "Django, Next.js, SEO Optimization, System Design",
                   color: "from-yellow-500 to-orange-500",
                 }
+                ,{
+                  icon: BrainIcon,
+                  title: "Future Goals",
+                  skills: "AI, Machine Learning, Deep Learning, Blockchain",
+                  color: "from-yellow-500 to-orange-500",
+                }
               ].map((skill, index) => (
                 <SwiperSlide key={index}>
                   <div className="skill-card group mt-4">
@@ -747,7 +746,7 @@ function App() {
                   image: "meeramines.jpg",
                   tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
                   github: "#",
-                  live: "http://13.236.183.167/",
+                  live: "https://mines.nidhicorporationtech.com/",
                   gradient: "from-blue-500 to-purple-500"
                 }
               ].map((project, index) => (
