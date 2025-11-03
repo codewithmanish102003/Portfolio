@@ -748,6 +748,14 @@ function App() {
                   github: "#",
                   live: "https://mines.nidhicorporationtech.com/",
                   gradient: "from-blue-500 to-purple-500"
+                },{
+                  title: "Nidhi Corporation Tech - IT Solutions Provider",
+                  description: "A platform offering a wide range of IT solutions and services.",
+                  image: "nidhicorporationtech.png",
+                  tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
+                  github: "#",
+                  live: "https://nidhicorporationtech.com/",
+                  gradient: "from-green-500 to-blue-500"
                 }
               ].map((project, index) => (
                 <div 
@@ -1002,7 +1010,7 @@ function App() {
           <div className="space-y-8 max-w-2xl mx-auto">
             <div className="flex items-start gap-4 bg-gradient-to-r from-blue-900/20 to-purple-900/10 rounded-xl p-6 shadow-lg">
               <div className="flex-shrink-0">
-                <span className="inline-block w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center text-2xl font-bold text-blue-500">B</span>
+                <span className="inline-block w-12 h-12 bg-blue-600/20 rounded-full items-center justify-center text-2xl font-bold text-blue-500">B</span>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-blue-400">Bachelor of Computer Application</h3>
@@ -1011,7 +1019,7 @@ function App() {
             </div>
             <div className="flex items-start gap-4 bg-gradient-to-r from-blue-900/10 to-purple-900/5 rounded-xl p-6 shadow">
               <div className="flex-shrink-0">
-                <span className="inline-block w-12 h-12 bg-green-600/20 rounded-full flex items-center justify-center text-2xl font-bold text-green-500">12</span>
+                <span className="inline-block w-12 h-12 bg-green-600/20 rounded-full items-center justify-center text-2xl font-bold text-green-500">12</span>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-green-400">XII (RBSE)</h3>
@@ -1020,7 +1028,7 @@ function App() {
             </div>
             <div className="flex items-start gap-4 bg-gradient-to-r from-blue-900/10 to-purple-900/5 rounded-xl p-6 shadow">
               <div className="flex-shrink-0">
-                <span className="inline-block w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center text-2xl font-bold text-purple-500">10</span>
+                <span className="inline-block w-12 h-12 bg-purple-600/20 rounded-full items-center justify-center text-2xl font-bold text-purple-500">10</span>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-purple-400">X (RBSE)</h3>
@@ -1039,23 +1047,23 @@ function App() {
           </h2>
           <ul className="max-w-2xl mx-auto space-y-6">
             <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
-              <span className="inline-block mt-1 w-8 h-8 bg-blue-600/20 rounded-full flex items-center justify-center text-lg font-bold text-blue-500">✓</span>
+              <span className="inline-block mt-1 w-8 h-8 bg-blue-600/20 rounded-full items-center justify-center text-lg font-bold text-blue-500">✓</span>
               <span className="text-lg text-gray-300">Certified in <span className="font-semibold text-blue-300">SmartCom 2023</span> and <span className="font-semibold text-purple-300">Namaste Web3</span> from Jaipur</span>
             </li>
             <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
-              <span className="inline-block mt-1 w-8 h-8 bg-green-600/20 rounded-full flex items-center justify-center text-lg font-bold text-green-500">✓</span>
+              <span className="inline-block mt-1 w-8 h-8 bg-green-600/20 rounded-full  items-center justify-center text-lg font-bold text-green-500">✓</span>
               <span className="text-lg text-gray-300">Completed <span className="font-semibold text-green-300">Upflairs Pvt Ltd Web Development and Designing</span> program in 2024</span>
             </li>
             <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
-              <span className="inline-block mt-1 w-8 h-8 bg-yellow-600/20 rounded-full flex items-center justify-center text-lg font-bold text-yellow-500">✓</span>
+              <span className="inline-block mt-1 w-8 h-8 bg-yellow-600/20 rounded-full  items-center justify-center text-lg font-bold text-yellow-500">✓</span>
               <span className="text-lg text-gray-300">Achieved certification in <span className="font-semibold text-yellow-300">Cloud Computing Basics</span> from Scaler Academy</span>
             </li>
             <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
-              <span className="inline-block mt-1 w-8 h-8 bg-pink-600/20 rounded-full flex items-center justify-center text-lg font-bold text-pink-500">✓</span>
+              <span className="inline-block mt-1 w-8 h-8 bg-pink-600/20 rounded-full  items-center justify-center text-lg font-bold text-pink-500">✓</span>
               <span className="text-lg text-gray-300">Completed <span className="font-semibold text-pink-300">Web Development and Designing</span> from Broadcast Engineering Consultants India Limited in 2024</span>
             </li>
             <li className="flex items-start gap-4 bg-gradient-to-r from-blue-800/10 to-purple-800/10 rounded-xl p-5 shadow">
-              <span className="inline-block mt-1 w-8 h-8 bg-indigo-600/20 rounded-full flex items-center justify-center text-lg font-bold text-indigo-500">✓</span>
+              <span className="inline-block mt-1 w-8 h-8 bg-indigo-600/20 rounded-full  items-center justify-center text-lg font-bold text-indigo-500">✓</span>
               <span className="text-lg text-gray-300">Certified in <span className="font-semibold text-indigo-300">All India National Creativity Aptitude Test</span> Conducted by Naukri in 2025</span>
             </li>
           </ul>
