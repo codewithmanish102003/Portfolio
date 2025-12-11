@@ -492,7 +492,7 @@ function App() {
                 {/* Experience 1 */}
                 <div className="relative pl-2 sm:pl-16 md:pl-0 md:pr-16 group">
                   <div className="md:text-right mb-4 md:mb-0 md:absolute md:right-[calc(50%+40px)] md:w-1/2 pr-0 sm:pr-4 md:pr-10">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">MERN Stack Developer Intern</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">MERN Stack Developer</h3>
                     <p className="text-blue-300 text-sm sm:text-base">8 Bit System Pvt. Ltd.</p>
                     <p className="text-xs sm:text-sm text-gray-400">June 2025 - Present</p>
                   </div>
@@ -732,6 +732,15 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
+                  title: "Electronic Prescriber - Electronic Prescription System",
+                  description: "A secure and efficient platform for managing electronic prescriptions between healthcare providers and pharmacies.",
+                  image: "eps.png",
+                  tech: ["JavaScript", "React", "NodeJS", "ExpressJS", "MongoDB","Postman"],
+                  github: "#",
+                  live: "https://singnature.dosedefence.com",
+                  gradient: "from-green-500 to-teal-500"
+                },
+                {
                   title: "Dosedefence - Pharmacy Centralized Management System",
                   description: "A comprehensive platform for managing pharmacy operations, including inventory, sales, and customer management.",
                   image: "dosedefence.png",
@@ -741,7 +750,7 @@ function App() {
                   gradient: "from-pink-500 to-red-500"
                 },
                 {
-                  title: "Meera Mines - Mining Company",
+                  title: "Meera Mines - Mining Management System",
                   description: "A platform for showcasing and managing mining operations.",
                   image: "meeramines.jpg",
                   tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
@@ -1137,37 +1146,6 @@ function App() {
                 </div>
               )}
             </form>
-            {/* Resume Download Button */}
-            <div className="mb-12">
-              <a
-                href="Manish Prajapati.pdf"
-                download
-                className="group inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-              >
-                <span className="group-hover:mr-2 transition-all duration-300">Download Resume</span>
-                <span className="inline-block group-hover:translate-y-[-2px] transition-transform duration-300">↓</span>
-              </a>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex justify-center space-x-6">
-              {[
-                { icon: Github, href: "https://github.com/codewithmanish102003", label: "GitHub", color: "hover:bg-gray-800" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/manish-prajapati-651a212aa", label: "LinkedIn", color: "hover:bg-blue-600" },
-                { icon: Mail, href: "mailto:marveluniverse1942@gmail.com", label: "Email", color: "hover:bg-red-500" }
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target={social.icon !== Mail ? "_blank" : undefined}
-                  rel={social.icon !== Mail ? "noopener noreferrer" : undefined}
-                  className={`group p-4 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 transition-all duration-300 hover:scale-110 hover:shadow-xl ${social.color} hover:text-white`}
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" />
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </section>
