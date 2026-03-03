@@ -380,10 +380,10 @@ function App() {
           <div className="w-full flex flex-col md:flex-row items-center">
           {/* Hero Content */}
           <div className="w-full md:w-1/2 text-center md:text-left hero-text">
-            <div className="mb-2 px-4 py-1.5 bg-blue-900/30 backdrop-blur-sm rounded-full border border-blue-500/30 inline-flex items-center">
+            {/* <div className="mb-2 px-4 py-1.5 bg-blue-900/30 backdrop-blur-sm rounded-full border border-blue-500/30 inline-flex items-center">
               <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
               <span className="text-sm font-medium text-blue-200">Available for opportunities</span>
-            </div>
+            </div> */}
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mt-6 mb-4 text-center md:text-left bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent leading-tight">
               Hi, I'm Manish Prajapati
@@ -727,17 +727,26 @@ function App() {
             </p>
           </div>
           {/* Work Projects Section */}
-          <div className="w-full mb-16">
-            <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Work Projects</h3>
+          <div className="w-full mb-0">
+            {/* <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Work Projects</h3> */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
+                {
+                  title: "Time To Legal CRM - CRM Management System",
+                  description: "A CRM system for employees Task tracking and attendence management.",
+                  image: "timetolegal.png",
+                  tech: ["JavaScript", "React", "NodeJS", "ExpressJS", "MongoDB","Postman"],
+                  github: "#",
+                  live: "http://187.77.184.77/login",
+                  gradient: "from-green-500 to-teal-500"
+                },
                 {
                   title: "Electronic Prescriber - Electronic Prescription System",
                   description: "A secure and efficient platform for managing electronic prescriptions between healthcare providers and pharmacies.",
                   image: "eps.png",
                   tech: ["JavaScript", "React", "NodeJS", "ExpressJS", "MongoDB","Postman"],
                   github: "#",
-                  live: "https://singnature.dosedefence.com",
+                  live: "https://doserx.dosedefence.com",
                   gradient: "from-green-500 to-teal-500"
                 },
                 {
@@ -749,21 +758,13 @@ function App() {
                   live: "https://dosedefence.com",
                   gradient: "from-pink-500 to-red-500"
                 },
-                {
-                  title: "Meera Mines - Mining Management System",
-                  description: "A platform for showcasing and managing mining operations.",
-                  image: "meeramines.jpg",
-                  tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
-                  github: "#",
-                  live: "https://mines.nidhicorporationtech.com/",
-                  gradient: "from-blue-500 to-purple-500"
-                },{
-                  title: "Nidhi Corporation Tech - IT Solutions Provider",
+              {
+                  title: "Particle14 - IT Solutions Provider",
                   description: "A platform offering a wide range of IT solutions and services.",
-                  image: "nidhicorporationtech.png",
+                  image: "particle14.png",
                   tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
                   github: "#",
-                  live: "https://nidhicorporationtech.com/",
+                  live: "https://particle14.com/",
                   gradient: "from-green-500 to-blue-500"
                 }
               ].map((project, index) => (
@@ -835,7 +836,7 @@ function App() {
             </div>
           </div>
 
-          {/* Academic Projects Section */}
+          {/* Academic Projects Section
           <div className="w-full">
             <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Academic Projects</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -961,7 +962,7 @@ function App() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -1193,7 +1194,7 @@ function App() {
               ))}
             </div>
             <a
-              href="Manish Prajapati.pdf"
+              href="manish(december)_compressed.pdf"
               download
               className="inline-flex items-center px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
             >
