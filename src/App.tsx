@@ -766,6 +766,15 @@ function App() {
                   github: "#",
                   live: "https://particle14.com/",
                   gradient: "from-green-500 to-blue-500"
+                },
+                  {
+                  title: "Nidhi Corporation Tech",
+                  description: "A platform offering a wide range of IT solutions and services.",
+                  image: "nidhicorporationtech.png",
+                  tech: ["React", "NodeJS", "ExpressJS", "MongoDB", "Tailwind"],
+                  github: "#",
+                  live: "https://nidhicorporationtech.com/",
+                  gradient: "from-green-500 to-blue-500"
                 }
               ].map((project, index) => (
                 <div 
