@@ -737,7 +737,7 @@ function App() {
                   image: "timetolegal.png",
                   tech: ["JavaScript", "React", "NodeJS", "ExpressJS", "MongoDB","Postman"],
                   github: "#",
-                  live: "http://187.77.184.77/login",
+                  live: "https://ttl.timetolegal.com/login",
                   gradient: "from-green-500 to-teal-500"
                 },
                 {
