@@ -530,7 +530,7 @@ function App() {
                   <Phone className="w-4 h-4" />
                   <span className="hidden sm:inline">9649527632</span>
                 </a>
-                <div className="flex items-center gap-2 text-slate-500 text-sm">
+                <div className="flex items-center gap-2 text-slate-400 text-sm">
                   <MapPin className="w-4 h-4" />
                   <span className="hidden sm:inline">Jaipur, India</span>
                 </div>
@@ -560,6 +560,9 @@ function App() {
                   alt="Manish Prajapati"
                   className="relative w-96 h-96 xl:w-[550px] xl:h-[550px] object-contain"
                   loading="eager"
+                  fetchPriority="high"
+                  width={550}
+                  height={550}
                 />
                 <div className="absolute -bottom-4 -left-6 card-glass rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl" style={{ mixBlendMode: 'normal' }}>
                   <div className="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
@@ -601,7 +604,7 @@ function App() {
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-3xl font-bold gradient-text font-display">{stat.value}</div>
-                <div className="text-xs text-slate-500 mt-1 tracking-wide uppercase font-medium">{stat.label}</div>
+                <div className="text-xs text-slate-400 mt-1 tracking-wide uppercase font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -1014,7 +1017,7 @@ function App() {
                       <item.icon className="w-4 h-4 text-blue-400" />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-xs text-slate-500 uppercase tracking-wider font-medium">{item.label}</div>
+                      <div className="text-xs text-slate-400 uppercase tracking-wider font-medium">{item.label}</div>
                       <div className="text-sm text-slate-300 group-hover:text-white transition-colors truncate">{item.value}</div>
                     </div>
                   </a>
@@ -1080,7 +1083,7 @@ function App() {
                 <div className="text-lg font-bold mb-1">
                   <span className="gradient-text font-display">Manish Prajapati</span>
                 </div>
-                <p className="text-xs text-slate-500">MERN Stack Developer · Jaipur, India</p>
+                <p className="text-xs text-slate-400">MERN Stack Developer · Jaipur, India</p>
               </div>
 
               <div className="flex items-center gap-4 justify-center sm:justify-end">
@@ -1107,7 +1110,7 @@ function App() {
             {/* Navigation Links */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
               {navLinks.map(link => (
-                <a key={link.href} href={link.href} className="text-xs text-slate-500 hover:text-slate-300 transition-colors uppercase tracking-wider font-medium">
+                <a key={link.href} href={link.href} className="text-xs text-slate-400 hover:text-slate-300 transition-colors uppercase tracking-wider font-medium">
                   {link.label}
                 </a>
               ))}
@@ -1115,7 +1118,7 @@ function App() {
           </div>
 
           <div className="border-t border-white/5 mt-10 pt-6 text-center">
-            <p className="text-xs text-slate-600">© {new Date().getFullYear()} Manish Prajapati. All rights reserved.</p>
+            <p className="text-xs text-slate-400">© {new Date().getFullYear()} Manish Prajapati. All rights reserved.</p>
           </div>
         </div>
       </footer>
