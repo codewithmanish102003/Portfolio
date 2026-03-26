@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base background — canvas sits on top of this */
+html, body {
+  background: #0A0F1E;
+  margin: 0;
+  padding: 0;
+}
+
 /* Ensure content is visible by default */
 .hero-text,
 .hero-image,

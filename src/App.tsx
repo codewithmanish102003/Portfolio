@@ -1,4 +1,4 @@
-import emailjs from '@emailjs/browser';
+﻿import emailjs from '@emailjs/browser';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -233,7 +233,38 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0F1E] text-white font-['DM_Sans',sans-serif]">
+    <div className="min-h-screen text-white font-['DM_Sans',sans-serif]" style={{ background: 'transparent' }}>
+
+      {/* Fixed video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'fixed',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 0,
+          opacity: 0.18,
+          pointerEvents: 'none',
+        }}
+      >
+        <source src="/original-a4a2951299cd0769ee025bd5901fc008.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark overlay so text stays readable */}
+      <div style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 1,
+        background: 'trnasparent',
+        pointerEvents: 'none',
+      }} />
+
+
       {/* Google Fonts */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:wght@600;700;800&display=swap');
@@ -265,9 +296,11 @@ function App() {
         }
         
         .card-glass {
-          background: rgba(17, 24, 39, 0.6);
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(255,255,255,0.06);
+          background: rgba(12, 18, 35, 0.72);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255,255,255,0.10);
+          box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
         }
         
         .btn-primary {
@@ -466,9 +499,11 @@ function App() {
       </nav>
 
       {/* ── HERO ── */}
-      <header ref={heroRef} id="home" className="min-h-screen flex items-center relative overflow-hidden pt-5" style={{ background: '#0A0F1E' }}>
-        {/* Grid lines */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '80px 80px' }}></div>
+      <header ref={heroRef} id="home" className="min-h-screen flex items-center relative overflow-hidden pt-5" style={{ background: 'transparent' }}>
+        {/* Subtle vignette overlay */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 40%, rgba(10,15,30,0.5) 100%)'
+        }}></div>
 
         <div className="container mx-auto px-6 lg:px-10 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-16 py-20">
@@ -593,7 +628,7 @@ function App() {
       </header>
 
       {/* ── STATS BAR ── */}
-      <div className="bg-[#111827] border-y border-white/5 py-6">
+      <div className="border-y border-white/10 py-6" style={{ background: 'rgba(12,18,35,0.65)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' }}>
         <div className="container mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
             {[
@@ -612,7 +647,7 @@ function App() {
       </div>
 
       {/* ── WORK EXPERIENCE ── */}
-      <section id="experience" className="py-24 relative" style={{ background: '#0A0F1E' }}>
+      <section id="experience" className="py-24 relative" style={{ background: 'rgba(10,15,28,0.45)', backdropFilter: 'blur(2px)', WebkitBackdropFilter: 'blur(2px)' }}>
         <div className="container mx-auto px-6 lg:px-10">
           <div className="mb-16">
             <span className="section-label block mb-3">Career</span>
@@ -699,7 +734,7 @@ function App() {
       </section>
 
       {/* ── SKILLS ── */}
-      <section ref={skillsRef} id="skills" className="py-24" style={{ background: '#0D1426' }}>
+      <section ref={skillsRef} id="skills" className="py-24" style={{ background: 'rgba(13,18,36,0.45)', backdropFilter: 'blur(2px)', WebkitBackdropFilter: 'blur(2px)' }}>
         <div className="container mx-auto px-6 lg:px-10">
           <div className="mb-16">
             <span className="section-label block mb-3">Capabilities</span>
@@ -746,7 +781,7 @@ function App() {
       </section>
 
       {/* ── PROJECTS ── */}
-      <section ref={projectsRef} id="projects" className="py-24 relative" style={{ background: '#0A0F1E' }}>
+      <section ref={projectsRef} id="projects" className="py-24 relative" style={{ background: 'rgba(10,15,28,0.45)', backdropFilter: 'blur(2px)', WebkitBackdropFilter: 'blur(2px)' }}>
         <div className="absolute inset-0 mesh-bg pointer-events-none"></div>
         <div className="container mx-auto px-6 lg:px-10 relative z-10">
           <div className="mb-16">
@@ -853,7 +888,7 @@ function App() {
       )}
 
       {/* ── EDUCATION ── */}
-      <section ref={educationRef} id="education" className="py-24" style={{ background: '#0D1426' }}>
+      <section ref={educationRef} id="education" className="py-24" style={{ background: 'rgba(13,18,36,0.45)', backdropFilter: 'blur(2px)', WebkitBackdropFilter: 'blur(2px)' }}>
         <div className="container mx-auto px-6 lg:px-10">
           <div className="mb-16">
             <span className="section-label block mb-3">Background</span>
@@ -922,7 +957,7 @@ function App() {
       </section>
 
       {/* ── ACHIEVEMENTS ── */}
-      <section ref={achievementsRef} id="achievements" className="py-24" style={{ background: '#0A0F1E' }}>
+      <section ref={achievementsRef} id="achievements" className="py-24" style={{ background: 'rgba(10,15,30,0.80)' }}>
         <div className="container mx-auto px-6 lg:px-10">
           <div className="mb-16">
             <span className="section-label block mb-3">Recognition</span>
@@ -988,7 +1023,7 @@ function App() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section ref={contactRef} id="contact" className="py-24 relative" style={{ background: '#0D1426' }}>
+      <section ref={contactRef} id="contact" className="py-24 relative" style={{ background: 'rgba(13,20,38,0.55)' }}>
         <div className="container mx-auto px-6 lg:px-10">
           <div className="max-w-5xl mx-auto">
             <div className="mb-16 text-center">
@@ -1074,7 +1109,7 @@ function App() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ background: '#070B16', borderTop: '1px solid rgba(255,255,255,0.05)' }} className="py-12">
+      <footer style={{ background: 'rgba(7,11,22,0.75)', borderTop: '1px solid rgba(255,255,255,0.05)' }} className="py-12">
         <div className="container mx-auto px-6 lg:px-10">
           <div className="flex flex-col gap-8">
             {/* Top Section */}
