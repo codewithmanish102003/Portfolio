@@ -2,10 +2,21 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-  ArrowUp, BrainIcon, X as CloseIcon, Code2, Database,
-  ExternalLink, Github, Instagram, Layout, Linkedin, Mail, Menu,
-  RocketIcon, Server, X, MapPin, Phone, ChevronRight,
-  Briefcase, GraduationCap, Award, Layers
+  ArrowUp,
+  Award,
+  BrainIcon,
+  Briefcase,
+  ChevronRight,
+  X as CloseIcon, Code2, Database,
+  ExternalLink, Github,
+  GraduationCap,
+  Instagram,
+  Layers,
+  Layout, Linkedin, Mail,
+  MapPin,
+  Menu,
+  Phone,
+  RocketIcon, Server, X
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
@@ -200,12 +211,21 @@ function App() {
       gradient: "from-violet-500 to-purple-600"
     },
     {
-      title: "Nidhi Corporation Tech",
+      title: "Axorvia Studio",
       description: "Full-featured corporate platform for an IT services firm with lead capture and service showcasing.",
-      image: "nidhicorporationtech.png",
-      tech: ["React", "Node.js", "Tailwind"],
+      image: "axorvia.png",
+      tech: ["Next.js","TypeScript", "Node.js", "Tailwind"],
       github: "#",
-      live: "https://nidhicorporationtech.com/",
+      live: "https://getaxorvia.com/",
+      gradient: "from-amber-500 to-orange-600"
+    },
+    {
+      title: "Saskat Jeevan Vikas Samiti",
+      description: "A clean and informative NGO website designed to highlight community initiatives, build trust with visitors, and make programs, mission, and outreach efforts easy to explore.",
+      image: "sashakt.png",
+      tech: ["React.js", "Node.js", "Tailwind","MongoDB"],
+      github: "#",
+      live: "https://sashaktjeevansamajikvikassamiti.com/",
       gradient: "from-amber-500 to-orange-600"
     },
   ];
@@ -233,34 +253,22 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen text-white font-['DM_Sans',sans-serif]" style={{ background: 'transparent' }}>
+    <div
+      className="min-h-screen text-white font-['DM_Sans',sans-serif] relative"
+      style={{ background: 'transparent', zIndex: 0 }}
+    >
 
-      {/* Fixed video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{
-          position: 'fixed',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: 0,
-          opacity: 0.18,
-          pointerEvents: 'none',
-        }}
-      >
-        <source src="/original-a4a2951299cd0769ee025bd5901fc008.mp4" type="video/mp4" />
-      </video>
-
-      {/* Dark overlay so text stays readable */}
+      {/* Layered static background */}
       <div style={{
         position: 'fixed',
         inset: 0,
-        zIndex: 1,
-        background: 'trnasparent',
+        zIndex: -1,
+        background: `
+          radial-gradient(circle at 15% 20%, rgba(79,142,247,0.20), transparent 30%),
+          radial-gradient(circle at 85% 18%, rgba(244,114,182,0.14), transparent 24%),
+          radial-gradient(circle at 50% 75%, rgba(124,58,237,0.18), transparent 30%),
+          linear-gradient(180deg, #08101f 0%, #0a0f1e 45%, #10182d 100%)
+        `,
         pointerEvents: 'none',
       }} />
 
