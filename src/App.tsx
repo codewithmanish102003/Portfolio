@@ -202,12 +202,12 @@ function App() {
       gradient: "from-rose-500 to-pink-600"
     },
     {
-      title: "Particle14 — IT Solutions Provider",
-      description: "Corporate website for an IT solutions company, showcasing services with a polished, modern interface.",
-      image: "particle14.png",
-      tech: ["React", "Node.js", "Tailwind"],
+      title: "Chat Support",
+      description: "Real-time chat support system for customer engagement and assistance.",
+      image: "chat.png",
+      tech: ["React", "Node.js", "Tailwind","Shadcn","Flutter","Firebase"],
       github: "#",
-      live: "https://particle14.com/",
+      live: "https://support.dosedefence.com",
       gradient: "from-violet-500 to-purple-600"
     },
     {
