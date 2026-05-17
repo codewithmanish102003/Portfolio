@@ -607,22 +607,6 @@ function App() {
                   width={550}
                   height={550}
                 />
-                <div className="absolute -bottom-4 -left-6 card-glass rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl" style={{ mixBlendMode: 'normal' }}>
-                  <div className="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                    <Briefcase className="w-4 h-4 text-blue-400" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-400 font-medium">Current Role</div>
-                    <div className="text-sm text-white font-semibold">MERN Developer</div>
-                  </div>
-                </div>
-                <div className="absolute -top-4 -right-6 card-glass rounded-xl px-4 py-3 shadow-xl">
-                  <div className="flex items-center gap-1.5 mb-0.5">
-                    <span className="glow-dot"></span>
-                    <span className="text-xs text-slate-400">Status</span>
-                  </div>
-                  <div className="text-sm text-white font-semibold">Available for work</div>
-                </div>
               </div>
             </div>
           </div>
@@ -734,7 +718,7 @@ function App() {
                       <span key={t} className="text-xs font-medium px-3 py-1 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/15">{t}</span>
                     ))}
                   </div>
-                </div>
+                </div>Fcurreny
               </div>
             </div>
           </div>
@@ -1162,6 +1146,17 @@ function App() {
 
           <div className="border-t border-white/5 mt-10 pt-6 text-center">
             <p className="text-xs text-slate-400">© {new Date().getFullYear()} Manish Prajapati. All rights reserved.</p>
+            <p className="text-xs text-slate-500 mt-2">
+              Our freelance website{' '}
+              <a
+                href="https://getaxorvia.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+                getaxorvia.com
+              </a>
+            </p>
           </div>
         </div>
       </footer>
