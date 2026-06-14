@@ -11,7 +11,7 @@ export function Footer() {
               <span className="footer-eyebrow"><i /> Available for new opportunities</span>
               <h2 className="font-display">Have an idea?<br /><span>Let's build it.</span></h2>
             </div>
-            <a href="mailto:marveluniverse1942@gmail.com" className="footer-mail" aria-label="Email Manish Prajapati">
+            <a href="https://wa.me/919649527632?text=Hi%20Manish%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20opportunity%20with%20you." target="_blank" rel="noopener noreferrer" className="footer-mail" aria-label="Start a WhatsApp conversation with Manish Prajapati">
               <span>Start a conversation</span>
               <ArrowUpRight />
             </a>

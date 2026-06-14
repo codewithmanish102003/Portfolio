@@ -34,7 +34,7 @@ export function Navigation({ isMenuOpen, onToggleMenu, onCloseMenu }: Navigation
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="nav-link">{link.label}</a>
             ))}
-            <a href="mailto:marveluniverse1942@gmail.com" className="nav-hire">Hire me</a>
+            <a href="https://wa.me/919649527632?text=Hi%20Manish%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20opportunity%20with%20you." target="_blank" rel="noopener noreferrer" className="nav-hire">Hire me</a>
           </div>
         </div>
 
@@ -43,7 +43,7 @@ export function Navigation({ isMenuOpen, onToggleMenu, onCloseMenu }: Navigation
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} onClick={onCloseMenu}>{link.label}</a>
             ))}
-            <a href="mailto:marveluniverse1942@gmail.com" className="nav-hire text-center" onClick={onCloseMenu}>Hire me</a>
+            <a href="https://wa.me/919649527632?text=Hi%20Manish%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20opportunity%20with%20you." target="_blank" rel="noopener noreferrer" className="nav-hire text-center" onClick={onCloseMenu}>Hire me</a>
           </div>
         )}
       </div>

@@ -1,7 +1,7 @@
 import { Briefcase, GraduationCap } from 'lucide-react';
 
 const jobs = [
-  { icon: Briefcase, title: 'MERN Stack Developer', company: 'Salo Tech Innovations', period: 'May 2026 - Present', points: ['Building and maintaining scalable full-stack web applications', 'Developing responsive interfaces and reliable backend services', 'Collaborating on product features, performance and code quality'], tech: ['React', 'Node.js', 'MongoDB', 'TypeScript'] },
+  { icon: Briefcase, title: 'NodeJS Developer', company: 'Salo Tech Innovations', period: 'May 2026 - Present', points: ['Building and maintaining scalable full-stack web applications', 'Developing responsive interfaces and reliable backend services', 'Collaborating on product features, performance and code quality'], tech: ['Node.js', "Express.js", 'MongoDB', 'TypeScript'] },
   { icon: Briefcase, title: 'MERN Stack Developer', company: '8 Bit System Pvt. Ltd.', period: 'June 2025 - April 2026', points: ['Responsive production applications with React, Node.js and MongoDB', 'Cross-functional feature planning and implementation', 'Performance optimization that improved load times by 40%'], tech: ['React', 'Node.js', 'MongoDB', 'TypeScript'] },
   { icon: GraduationCap, title: 'Academic & Freelance Projects', company: 'Self-directed / Freelance', period: 'Jun 2024 - 2025', points: ['Full-stack products designed and shipped independently', 'Performance, accessibility and responsive UI improvements'], tech: ['JavaScript', 'React', 'Tailwind CSS'] },
 ];

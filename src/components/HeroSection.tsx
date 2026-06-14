@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Github, Instagram, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Github, Instagram, Linkedin, Mail } from 'lucide-react';
 import { forwardRef } from 'react';
 
 export const HeroSection = forwardRef<HTMLElement>(function HeroSection(_, ref) {
@@ -56,15 +56,15 @@ export const HeroSection = forwardRef<HTMLElement>(function HeroSection(_, ref) 
               <div className="hero-photo-number">01</div>
               <div className="hero-photo-lines" aria-hidden="true" />
               <img src="/portfolio.png" alt="Manish Prajapati" loading="eager" fetchPriority="high" width={650} height={650} />
-              <div className="hero-availability"><span /> Available for work</div>
+              {/* <div className="hero-availability"><span /> Available for work</div> */}
             </div>
           </div>
         </div>
       </div>
 
-      <a href="#experience" className="hero-scroll" aria-label="Scroll to experience">
+      {/* <a href="#experience" className="hero-scroll" aria-label="Scroll to experience">
         <ArrowDown className="w-4 h-4" />
-      </a>
+      </a> */}
     </header>
   );
 });

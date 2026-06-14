@@ -26,23 +26,50 @@ export const navLinks: NavLink[] = [
 export const skills: Skill[] = [
   { icon: Code2, title: 'Languages', skills: 'JavaScript, TypeScript, Python, C, C++, Java', color: 'from-sky-500 to-blue-600' },
   { icon: Layout, title: 'Frontend', skills: 'React.js, Next.js, HTML5, CSS3, Tailwind, Bootstrap', color: 'from-violet-500 to-purple-600' },
-  { icon: Server, title: 'Backend', skills: 'Node.js, Express.js, Django, REST API, GraphQL', color: 'from-emerald-500 to-teal-600' },
+  { icon: Server, title: 'Backend', skills: 'Node.js, Express.js, Flask, REST API, GraphQL', color: 'from-emerald-500 to-teal-600' },
   { icon: Database, title: 'Database', skills: 'MongoDB, MySQL, Mongoose', color: 'from-amber-500 to-orange-600' },
-  { icon: Layers, title: 'Tools & Platforms', skills: 'Git, GitHub, VS Code, Postman, Netlify, Vercel, Cloudinary', color: 'from-rose-500 to-pink-600' },
-  { icon: RocketIcon, title: 'Currently Learning', skills: 'Next.js, SEO Optimization, System Design, Flask', color: 'from-cyan-500 to-sky-600' },
+  { icon: Layers, title: 'Tools & Platforms', skills: 'Git, GitHub, VS Code, Postman, Redis, Hostinger', color: 'from-rose-500 to-pink-600' },
+  { icon: RocketIcon, title: 'Currently Learning', skills: 'SEO Optimization, System Design', color: 'from-cyan-500 to-sky-600' },
   { icon: BrainIcon, title: 'Future Goals', skills: 'AI, Machine Learning, Deep Learning, Blockchain', color: 'from-indigo-500 to-violet-600' },
 ];
 
 export const workProjects: Project[] = [
-  {
-    title: 'Time To Legal - CRM Management System',
-    description: 'A comprehensive CRM platform for employee task tracking, attendance management, and workflow automation.',
-    image: 'timetolegal.png',
-    tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
+    {
+    title: 'Axorvia Studio',
+    description: 'Full-featured corporate platform for an IT services firm with lead capture and service showcasing.',
+    image: 'axorvia.png',
+    tech: ['Next.js', 'TypeScript', 'Node.js', 'Tailwind'],
     github: '#',
-    live: 'https://ttl.timetolegal.com/login',
-    gradient: 'from-emerald-500 to-teal-600',
+    live: 'https://getaxorvia.com/',
+    gradient: 'from-amber-500 to-orange-600',
   },
+      {
+    title: 'Cancer Care - NGO Foundation',
+    description: 'A dedicated platform for a cancer care NGO, providing information, resources, and support for patients and families.',
+    image: 'cancercare.png',
+    tech: ['Next.js', 'Node.js', 'Tailwind', 'MongoDB'],
+    github: '#',
+    live: 'https://cancercaremissionfoundation.in',
+    gradient: 'from-violet-500 to-purple-600',
+  },
+   {
+    title: 'Saskat Jeevan Vikas Samiti',
+    description: 'A clean and informative NGO website designed to highlight community initiatives, build trust with visitors, and make programs, mission, and outreach efforts easy to explore.',
+    image: 'sashakt.png',
+    tech: ['React.js', 'Node.js', 'Tailwind', 'MongoDB'],
+    github: '#',
+    live: 'https://sashaktjeevansamajikvikassamiti.com/',
+    gradient: 'from-amber-500 to-orange-600',
+  },
+  // {
+  //   title: 'Time To Legal - CRM Management System',
+  //   description: 'A comprehensive CRM platform for employee task tracking, attendance management, and workflow automation.',
+  //   image: 'timetolegal.png',
+  //   tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
+  //   github: '#',
+  //   live: 'https://ttl.timetolegal.com/login',
+  //   gradient: 'from-emerald-500 to-teal-600',
+  // },
   {
     title: 'Electronic Prescriber - E-Prescription System',
     description: 'Secure digital prescription platform connecting healthcare providers and pharmacies with end-to-end encryption.',
@@ -61,33 +88,18 @@ export const workProjects: Project[] = [
     live: 'https://dosedefence.com',
     gradient: 'from-rose-500 to-pink-600',
   },
-  {
-    title: 'Chat Support',
-    description: 'Real-time chat support system for customer engagement and assistance.',
-    image: 'chat.png',
-    tech: ['React', 'Node.js', 'Tailwind', 'Shadcn', 'Flutter', 'Firebase'],
-    github: '#',
-    live: 'https://support.dosedefence.com',
-    gradient: 'from-violet-500 to-purple-600',
-  },
-  {
-    title: 'Axorvia Studio',
-    description: 'Full-featured corporate platform for an IT services firm with lead capture and service showcasing.',
-    image: 'axorvia.png',
-    tech: ['Next.js', 'TypeScript', 'Node.js', 'Tailwind'],
-    github: '#',
-    live: 'https://getaxorvia.com/',
-    gradient: 'from-amber-500 to-orange-600',
-  },
-  {
-    title: 'Saskat Jeevan Vikas Samiti',
-    description: 'A clean and informative NGO website designed to highlight community initiatives, build trust with visitors, and make programs, mission, and outreach efforts easy to explore.',
-    image: 'sashakt.png',
-    tech: ['React.js', 'Node.js', 'Tailwind', 'MongoDB'],
-    github: '#',
-    live: 'https://sashaktjeevansamajikvikassamiti.com/',
-    gradient: 'from-amber-500 to-orange-600',
-  },
+  // {
+  //   title: 'Chat Support',
+  //   description: 'Real-time chat support system for customer engagement and assistance.',
+  //   image: 'chat.png',
+  //   tech: ['React', 'Node.js', 'Tailwind', 'Shadcn', 'Flutter', 'Firebase'],
+  //   github: '#',
+  //   live: 'https://support.dosedefence.com',
+  //   gradient: 'from-violet-500 to-purple-600',
+  // },
+
+
+ 
 ];
 
 export const education: Education[] = [

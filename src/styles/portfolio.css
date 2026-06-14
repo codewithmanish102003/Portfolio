@@ -158,6 +158,13 @@ input.error,textarea.error { border-color:#ef4444 !important; }
 .skill-icon { color:var(--accent); width:22px; height:22px; margin-top:.25rem; }
 .skill-row h3 { color:white; font:600 1.15rem/1.2 'Space Grotesk'; margin-bottom:.5rem; }
 .skill-row p { color:#858585; font-size:.85rem; line-height:1.6; }
+.skill-tech-marquee { position:relative; width:100%; overflow:hidden; padding:.2rem 0; mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+.skill-tech-track { display:flex; width:max-content; gap:.55rem; animation:skill-tech-scroll 18s linear infinite; }
+.skill-row:nth-child(even) .skill-tech-track { animation-direction:reverse; animation-duration:21s; }
+.skill-row:hover .skill-tech-track { animation-play-state:paused; }
+.skill-tech-chip { display:inline-flex; align-items:center; gap:.45rem; flex:0 0 auto; color:#999; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.025); padding:.45rem .65rem; font-size:.68rem; line-height:1; white-space:nowrap; }
+.skill-tech-chip svg { width:13px; height:13px; color:var(--accent); }
+@keyframes skill-tech-scroll { to { transform:translateX(-50%); } }
 
 /* Vertical experience timeline */
 .experience-count { color:var(--accent); font:700 3rem/1 'Space Grotesk'; display:flex; align-items:end; gap:.6rem; }
@@ -261,6 +268,8 @@ input.error,textarea.error { border-color:#ef4444 !important; }
   .footer-action-column { grid-column:2; }
 }
 @media (max-width:640px) {
+  .hero-section > .container { align-items:flex-start; padding-top:0; }
+  .hero-section > .container > div { padding-top:0; padding-bottom:4rem; }
   .hero-photo-frame { width:min(82vw,360px); }
   .hero-role { font-size:.72rem; }
   .hero-role-ticker { align-items:center; font-size:clamp(2.5rem,11.5vw,4rem); }
@@ -310,4 +319,5 @@ input.error,textarea.error { border-color:#ef4444 !important; }
 @media (prefers-reduced-motion:reduce) {
   .hero-role-track { animation:none; }
   .hero-role-window::after { animation:none; }
+  .skill-tech-track { animation:none; }
 }
