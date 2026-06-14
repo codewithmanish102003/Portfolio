@@ -44,7 +44,7 @@ export function Footer() {
 
           <div className="footer-column footer-action-column">
             <span>Documents</span>
-            <a href="manish(december)_compressed.pdf" download className="footer-resume">
+            <a href="Manish.pdf" download className="footer-resume">
               Download resume <Download />
             </a>
             <a href="https://getaxorvia.com/" target="_blank" rel="noopener noreferrer">Axorvia Studio <ArrowUpRight /></a>

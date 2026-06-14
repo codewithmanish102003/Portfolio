@@ -31,7 +31,7 @@ export const HeroSection = forwardRef<HTMLElement>(function HeroSection(_, ref) 
               <a href="#projects" className="btn-primary px-7 py-3.5 font-semibold text-white flex items-center gap-2">
                 <span>Explore my work</span><ArrowUpRight className="w-4 h-4 relative z-10" />
               </a>
-              <a href="manish(december)_compressed.pdf" download className="btn-outline px-7 py-3.5 font-semibold text-white">
+              <a href="Manish.pdf" download className="btn-outline px-7 py-3.5 font-semibold text-white">
                 Download CV
               </a>
             </div>
