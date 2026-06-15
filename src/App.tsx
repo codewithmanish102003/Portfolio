@@ -6,6 +6,7 @@ import { AboutSection } from './components/AboutSection';
 import { BackgroundLayer } from './components/BackgroundLayer';
 import { EducationSection } from './components/EducationSection';
 import { ExperienceSection } from './components/ExperienceSection';
+import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
 import { Navigation } from './components/Navigation';
@@ -89,6 +90,7 @@ function App() {
       <ProjectModal project={selectedProject} isOpen={modalOpen} closeButtonRef={dialogCloseBtnRef} onClose={closeModal} />
       <EducationSection ref={educationRef} />
       <AchievementsSection ref={achievementsRef} />
+      <FaqSection />
       <Footer />
     </div>
   );

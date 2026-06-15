@@ -21,11 +21,12 @@ export const navLinks: NavLink[] = [
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
   { href: '#education', label: 'Education' },
+  { href: '#faq', label: 'FAQ' },
 ];
 
 export const skills: Skill[] = [
   { icon: Code2, title: 'Languages', skills: 'JavaScript, TypeScript, Python, C, C++, Java', color: 'from-sky-500 to-blue-600' },
-  { icon: Layout, title: 'Frontend', skills: 'React.js, Next.js, HTML5, CSS3, Tailwind, Bootstrap', color: 'from-violet-500 to-purple-600' },
+  { icon: Layout, title: 'Frontend', skills: 'React.js, Next.js, Flutter, HTML5, CSS3, Tailwind, Bootstrap', color: 'from-violet-500 to-purple-600' },
   { icon: Server, title: 'Backend', skills: 'Node.js, Express.js, Flask, REST API, GraphQL', color: 'from-emerald-500 to-teal-600' },
   { icon: Database, title: 'Database', skills: 'MongoDB, MySQL, Mongoose', color: 'from-amber-500 to-orange-600' },
   { icon: Layers, title: 'Tools & Platforms', skills: 'Git, GitHub, VS Code, Postman, Redis, Hostinger', color: 'from-rose-500 to-pink-600' },
