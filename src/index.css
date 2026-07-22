@@ -231,69 +231,40 @@ button:focus-visible {
 .footer-wordmark {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-
-  margin: 4rem 0;
-
-  position: relative;
-  overflow: hidden;
-  cursor: default;
-  user-select: none;
+  gap: 0.05em;
 
   font-family: "Anton", sans-serif;
   font-size: clamp(8rem, 22vw, 18rem);
   font-weight: 900;
-  line-height: .82;
-  letter-spacing: -.07em;
+  text-transform: uppercase;
+  line-height: .8;
 
   color: transparent;
-  -webkit-text-stroke: 2px rgba(255,255,255,.08);
+  -webkit-text-stroke: 2px rgba(255,255,255,.12);
+
+  cursor: default;
 }
 
-.wordmark-letter{
+.footer-wordmark span{
   display:inline-block;
-
   transition:
-    transform .55s cubic-bezier(.22,.61,.36,1),
-    color .35s ease,
-    text-shadow .35s ease,
-    -webkit-text-stroke-color .35s ease;
+      transform .45s cubic-bezier(.2,.8,.2,1),
+      color .45s,
+      -webkit-text-stroke-color .45s,
+      text-shadow .45s;
 }
 
-.footer-wordmark:hover .wordmark-letter{
-  color:#fff;
+.footer-wordmark:hover span{
+  color:#fe5405;
   -webkit-text-stroke-color:#fff;
-
   text-shadow:
-    0 0 15px rgba(255,255,255,.45),
-    0 0 35px rgba(255,255,255,.18);
+      0 0 12px rgba(255,255,255,.35),
+      0 0 40px rgba(255,255,255,.15);
 }
 
-.footer-wordmark:hover .wordmark-letter:nth-child(odd){
-  transform:translateY(-18px) rotate(-2deg);
-}
-
-.footer-wordmark:hover .wordmark-letter:nth-child(even){
-  transform:translateY(18px) rotate(2deg);
-}
-
-.footer-wordmark::after{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:linear-gradient(
-    115deg,
-    transparent 35%,
-    rgba(255,255,255,.28) 50%,
-    transparent 65%
-  );
-
-  transform:translateX(-130%) skewX(-18deg);
-  transition:transform .9s ease;
-}
-
-.footer-wordmark:hover::after{
-  transform:translateX(130%) skewX(-18deg);
-}
+.footer-wordmark:hover span:nth-child(1){transform:translateY(-20px);}
+.footer-wordmark:hover span:nth-child(2){transform:translateY(12px);}
+.footer-wordmark:hover span:nth-child(3){transform:translateY(-15px);}
+.footer-wordmark:hover span:nth-child(4){transform:translateY(18px);}
+.footer-wordmark:hover span:nth-child(5){transform:translateY(-10px);}
+.footer-wordmark:hover span:nth-child(6){transform:translateY(15px);}
