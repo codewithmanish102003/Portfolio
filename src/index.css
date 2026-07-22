@@ -227,3 +227,73 @@ button:focus-visible {
 .delay-500 { animation-delay: 500ms; }
 .delay-700 { animation-delay: 700ms; }
 .delay-1000 { animation-delay: 1000ms; }
+
+.footer-wordmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  margin: 4rem 0;
+
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+
+  font-family: "Anton", sans-serif;
+  font-size: clamp(8rem, 22vw, 18rem);
+  font-weight: 900;
+  line-height: .82;
+  letter-spacing: -.07em;
+
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255,255,255,.08);
+}
+
+.wordmark-letter{
+  display:inline-block;
+
+  transition:
+    transform .55s cubic-bezier(.22,.61,.36,1),
+    color .35s ease,
+    text-shadow .35s ease,
+    -webkit-text-stroke-color .35s ease;
+}
+
+.footer-wordmark:hover .wordmark-letter{
+  color:#fff;
+  -webkit-text-stroke-color:#fff;
+
+  text-shadow:
+    0 0 15px rgba(255,255,255,.45),
+    0 0 35px rgba(255,255,255,.18);
+}
+
+.footer-wordmark:hover .wordmark-letter:nth-child(odd){
+  transform:translateY(-18px) rotate(-2deg);
+}
+
+.footer-wordmark:hover .wordmark-letter:nth-child(even){
+  transform:translateY(18px) rotate(2deg);
+}
+
+.footer-wordmark::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255,255,255,.28) 50%,
+    transparent 65%
+  );
+
+  transform:translateX(-130%) skewX(-18deg);
+  transition:transform .9s ease;
+}
+
+.footer-wordmark:hover::after{
+  transform:translateX(130%) skewX(-18deg);
+}
